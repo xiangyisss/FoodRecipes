@@ -43,7 +43,7 @@ export default {
   components: { IngredientAndStep },
   computed: mapState(["recipedetails"]),
   created() {
-    this.$store.dispatch("getRecipeDetail", this.id);
+    this.$store.dispatch("getRecipeDetails", this.id);
   },
 };
 </script>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import RecipeDetail from "@/views/RecipeDetail.vue";
+import CousineList from "@/views/CousineList.vue";
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     name: "recipedetails",
     component: RecipeDetail,
     props: true,
+  },
+  {
+    path: "/cousine-list",
+    name: "cousinelist",
+    component: CousineList,
   },
 ];
 

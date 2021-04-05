@@ -1,7 +1,14 @@
 <template>
   <div class="home">
-    <label></label>
-    <input type="text" @keyup.enter="submit" v-model="query" />
+    <input
+      type="text"
+      @keyup.enter="submit"
+      v-model="query"
+      placeholder="Find a recipe..."
+      class="border py-2 px-3 text-gray-400 focus-within:text-gray-600 ..."
+    />
+
+    <cousine />
 
     <div v-for="recipe in recipes" :key="recipe">
       <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
@@ -14,7 +21,9 @@
 
 <script>
 import { mapState } from "vuex";
+import Cousine from "../components/Cousine.vue";
 export default {
+  components: { Cousine },
   name: "Home",
   data() {
     return {
