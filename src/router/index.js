@@ -3,7 +3,8 @@ import Home from "../views/Home.vue";
 import RecipeDetail from "@/views/RecipeDetail.vue";
 import CousineList from "@/views/CousineList.vue";
 import NotFound from "@/views/NotFound.vue";
-import store from "@/store/index";
+import NetworkIssue from "@/views/NetworkIssue.vue";
+import store from "@/store/index.js";
 
 const routes = [
   {
@@ -16,16 +17,22 @@ const routes = [
     name: "recipedetails",
     component: RecipeDetail,
     props: true,
-    beforEnter(routeTo, routeFrom, next) {
+    beforeEnter(routeTo, routeFrom, next) {
       store
         .dispatch("getRecipeDetails", routeTo.params.id)
-        .then((details) => {
-          routeTo.params.details = details;
+        .then((recipe) => {
+          routeTo.params.event = recipe;
+
           next();
         })
-        .catch((err) => {
-          if (err.response && err.response.status == 404) {
-            next({ name: "404", params: { resource: "recipe" } });
+        .catch((error) => {
+          if (error.response && error.response.status == 404) {
+            next({
+              name: "404",
+              params: { resource: "recipe" },
+            });
+          } else {
+            next({ name: "network-issue" });
           }
         });
     },
@@ -40,6 +47,11 @@ const routes = [
     name: "404",
     component: NotFound,
     props: true,
+  },
+  {
+    path: "/network-issue",
+    name: "network-issue",
+    component: NetworkIssue,
   },
   {
     path: "/:pathMatch(.*)*",

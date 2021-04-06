@@ -41,14 +41,14 @@ export default createStore({
         .catch((err) => console.log(err));
     },
     getRecipeDetails({ commit }, id) {
-      axios
+      return axios
         .get(
           ` https://api.spoonacular.com/recipes/${id}/information?apiKey=376a071d9e3f4a76a57cb68329ff1cff&includeNutrition=false`
         )
         .then((res) => {
           commit("GET_RECIPE_DETAILS", res.data);
-        })
-        .catch((err) => console.log(err));
+          return res.data;
+        });
     },
     getIngredients({ commit }, id) {
       axios
