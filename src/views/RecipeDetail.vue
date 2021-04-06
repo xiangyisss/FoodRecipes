@@ -7,16 +7,6 @@
     <p>Ready in {{ recipedetails.readyInMinutes }} minutes</p>
     <p>Price per serving: {{ recipedetails.pricePerServing }}</p>
 
-    <!-- Ingredient:
-    <ol>
-      <li
-        v-for="ingredient in recipedetails.analyzedInstructions.steps.equipment"
-        :key="ingredient.index"
-      >
-        {{ ingredient }}
-      </li>
-    </ol> -->
-
     Dish type:
     <div class="type">
       <p v-for="dish in recipedetails.dishTypes" :key="dish.index">

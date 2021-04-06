@@ -72,6 +72,10 @@ export default createStore({
         .catch((err) => console.log(err));
     },
     getRecipeDetail({ commit, getters }, id) {
+      // if (id == state.recipedetails.id) {
+      //   return state.recipedetails;
+      // }
+
       let recipedetail = getters.getRecipeById(id);
 
       if (recipedetail) {
@@ -85,6 +89,7 @@ export default createStore({
             commit("GET_RECIPE_DETAIL", res.data);
           })
           .catch((err) => console.log(err));
+        //console.log("Somgthing wrong.");
       }
     },
   },

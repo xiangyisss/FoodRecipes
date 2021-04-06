@@ -1,22 +1,21 @@
 <template>
   <div>
-    <div v-for="recipe in cousine" :key="recipe.id">
-      <img :src="recipe.image" alt="" />
-      <a href="" @click="getRecipeDetails">{{ recipe.title }}</a>
+    <div v-for="recipe in cousine" :key="recipe.index">
+      <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
+        <img :src="recipe.image" alt="" />
+        <p>{{ recipe.title }}</p>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
+  props: ["id"],
   computed: mapState(["cousine"]),
-  methods: {
-    getRecipeDetails() {
-      this.$store.dispatch("getRecipeDetail", this.recipe.id).then(() => {
-        this.$router.push({ name: "recipedetails" });
-      });
-    },
+  created() {
+    mapActions(["getRecipeDetail"], this.id);
   },
 };
 </script>
