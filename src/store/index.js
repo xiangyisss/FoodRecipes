@@ -6,10 +6,8 @@ export default createStore({
     recipes: [],
     recipedetails: [],
     ingredients: [],
-    cousine: [],
-    recipedetail: [],
-    mealtype: "",
-    diettype: "",
+    //recipedetail: [],
+    recipetype: "",
   },
   mutations: {
     GET_RECIPES(state, recipes) {
@@ -21,26 +19,18 @@ export default createStore({
     GET_INGREDIENTS(state, ingredients) {
       state.ingredients = ingredients;
     },
-    COUSINE_RECIPES(state, cousine) {
-      state.cousine = cousine;
-    },
-    GET_RECIPE_DETAIL(state, detail) {
-      state.recipedetail = detail;
-    },
-    GET_MEALTYPE(state, mealtype) {
-      state.mealtype = mealtype;
-    },
-    GET_DIET_RECIPES(state, diettype) {
-      state.diettype = diettype;
+    // GET_RECIPE_DETAIL(state, detail) {
+    //   state.recipedetail = detail;
+    // },
+    GET_RECIPE_TYPE(state, recipetype) {
+      state.recipetype = recipetype;
     },
   },
   actions: {
     getData({ commit }, query) {
       axios
         .get(
-          // `https://api.spoonacular.com/food/products/search?query=${query}&apiKey=376a071d9e3f4a76a57cb68329ff1cff`,
           `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=376a071d9e3f4a76a57cb68329ff1cff&number=20`
-          // `https://api.edamam.com/search?q=${query}&app_id=97a2247f&app_key=41023221308c37a8780c8db85c616470&from=0&to=20`
         )
 
         .then((res) => {
@@ -68,17 +58,6 @@ export default createStore({
         })
         .catch((err) => console.log(err));
     },
-    cousineRecipes({ commit }, country) {
-      axios
-        .get(
-          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&cuisine=${country}`
-        )
-        .then((res) => {
-          commit("COUSINE_RECIPES", res.data.results);
-        })
-
-        .catch((err) => console.log(err));
-    },
     // getRecipeDetail({ commit, getters }, id) {
     //   // if (id == state.recipedetails.id) {
     //   //   return state.recipedetails;
@@ -100,20 +79,14 @@ export default createStore({
     //     //console.log("Somgthing wrong.");
     //   }
     // },
-    getMealType({ commit }, type) {
+    getRecipeType({ commit }, mealtype, cuisine, diettype, time) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&type=${type}`
+          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&type=${
+            mealtype ?? ""
+          }&diet=${diettype ?? ""}&cuisine=${cuisine ?? ""}&sort=${time}`
         )
-        .then((res) => commit("GET_MEALTYPE", res.data.results))
-        .catch((err) => console.log(err));
-    },
-    getDietType({ commit }, diettype) {
-      axios
-        .get(
-          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&diet=${diettype}`
-        )
-        .then((res) => commit("GET_DIET_RECIPES", res.data.results))
+        .then((res) => commit("GET_RECIPE_TYPE", res.data.results))
         .catch((err) => console.log(err));
     },
   },
