@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select v-model="type" :placeholder="type">
+    <select v-model="mealtype">
       <option value="dessert">Dessert</option>
       <option value="breakfast">Breakfast</option>
       <option value="appetizer">Appetizer</option>
@@ -22,12 +22,12 @@
 export default {
   data() {
     return {
-      type: "",
+      mealtype: "",
     };
   },
   methods: {
     button() {
-      this.$store.dispatch("getMealType", this.type);
+      this.$store.dispatch("getMealType", this.mealtype);
     },
   },
 };

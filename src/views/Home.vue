@@ -11,6 +11,8 @@
     <cousine />
     <meal-type />
     <meal-type-list />
+    <diet-type />
+    <diet-type-list />
 
     <div v-for="recipe in recipes" :key="recipe">
       <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
@@ -26,8 +28,10 @@ import { mapState } from "vuex";
 import Cousine from "../components/Cousine.vue";
 import MealType from "../components/MealType.vue";
 import MealTypeList from "@/components/MealTypeList.vue";
+import DietType from "@/components/DietType.vue";
+import DietTypeList from "../components/DietTypeList.vue";
 export default {
-  components: { Cousine, MealType, MealTypeList },
+  components: { Cousine, MealType, MealTypeList, DietType, DietTypeList },
   name: "Home",
   data() {
     return {

@@ -9,7 +9,7 @@ export default createStore({
     cousine: [],
     recipedetail: [],
     mealtype: "",
-    diet: "",
+    diettype: "",
   },
   mutations: {
     GET_RECIPES(state, recipes) {
@@ -30,8 +30,8 @@ export default createStore({
     GET_MEALTYPE(state, mealtype) {
       state.mealtype = mealtype;
     },
-    GET_DIET_RECIPES(state, diet) {
-      state.diet = diet;
+    GET_DIET_RECIPES(state, diettype) {
+      state.diettype = diettype;
     },
   },
   actions: {
@@ -100,12 +100,20 @@ export default createStore({
     //     //console.log("Somgthing wrong.");
     //   }
     // },
-    getMealType({ commit }, type, diet) {
+    getMealType({ commit }, type) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&type=${type}$diet=${diet}`
+          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&type=${type}`
         )
         .then((res) => commit("GET_MEALTYPE", res.data.results))
+        .catch((err) => console.log(err));
+    },
+    getDietType({ commit }, diettype) {
+      axios
+        .get(
+          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&diet=${diettype}`
+        )
+        .then((res) => commit("GET_DIET_RECIPES", res.data.results))
         .catch((err) => console.log(err));
     },
   },
