@@ -8,6 +8,8 @@ export default createStore({
     ingredients: [],
     cousine: [],
     recipedetail: [],
+    mealtype: "",
+    diet: "",
   },
   mutations: {
     GET_RECIPES(state, recipes) {
@@ -24,6 +26,12 @@ export default createStore({
     },
     GET_RECIPE_DETAIL(state, detail) {
       state.recipedetail = detail;
+    },
+    GET_MEALTYPE(state, mealtype) {
+      state.mealtype = mealtype;
+    },
+    GET_DIET_RECIPES(state, diet) {
+      state.diet = diet;
     },
   },
   actions: {
@@ -71,26 +79,34 @@ export default createStore({
 
         .catch((err) => console.log(err));
     },
-    getRecipeDetail({ commit, getters }, id) {
-      // if (id == state.recipedetails.id) {
-      //   return state.recipedetails;
-      // }
+    // getRecipeDetail({ commit, getters }, id) {
+    //   // if (id == state.recipedetails.id) {
+    //   //   return state.recipedetails;
+    //   // }
 
-      let recipedetail = getters.getRecipeById(id);
+    //   let recipedetail = getters.getRecipeById(id);
 
-      if (recipedetail) {
-        commit("GET_RECIPE_DETAIL", recipedetail);
-      } else {
-        axios
-          .get(
-            ` https://api.spoonacular.com/recipes/${id}/information?apiKey=376a071d9e3f4a76a57cb68329ff1cff&includeNutrition=false`
-          )
-          .then((res) => {
-            commit("GET_RECIPE_DETAIL", res.data);
-          })
-          .catch((err) => console.log(err));
-        //console.log("Somgthing wrong.");
-      }
+    //   if (recipedetail) {
+    //     commit("GET_RECIPE_DETAIL", recipedetail);
+    //   } else {
+    //     axios
+    //       .get(
+    //         ` https://api.spoonacular.com/recipes/${id}/information?apiKey=376a071d9e3f4a76a57cb68329ff1cff&includeNutrition=false`
+    //       )
+    //       .then((res) => {
+    //         commit("GET_RECIPE_DETAIL", res.data);
+    //       })
+    //       .catch((err) => console.log(err));
+    //     //console.log("Somgthing wrong.");
+    //   }
+    // },
+    getMealType({ commit }, type, diet) {
+      axios
+        .get(
+          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&type=${type}$diet=${diet}`
+        )
+        .then((res) => commit("GET_MEALTYPE", res.data.results))
+        .catch((err) => console.log(err));
     },
   },
   modules: {},

@@ -21,7 +21,7 @@ const routes = [
       store
         .dispatch("getRecipeDetails", routeTo.params.id)
         .then((recipe) => {
-          routeTo.params.event = recipe;
+          routeTo.params.recipe = recipe;
 
           next();
         })
