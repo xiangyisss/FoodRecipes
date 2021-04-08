@@ -8,12 +8,12 @@ import store from "@/store/index.js";
 
 const routes = [
   {
-    path: "/recipe",
+    path: "/",
     name: "Home",
     component: Home,
   },
   {
-    path: "/recipe-details/:id",
+    path: "/recipe/details/:id",
     name: "recipedetails",
     component: RecipeDetail,
     props: true,

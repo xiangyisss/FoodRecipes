@@ -63,6 +63,7 @@
     </div>
 
     <button @click="button">Search</button>
+    <button @click="reset">Reset</button>
 
     <div>
       <div v-for="type in recipetype" :key="type.index">
@@ -95,6 +96,13 @@ export default {
         diettype: this.diettype,
         allergie: this.allergie,
       });
+    },
+    reset() {
+      // this.mealtype = "";
+      // this.cuisine = "";
+      // this.diettype = "";
+      // this.allergie = "";
+      location.reload();
     },
   },
 };
