@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>
+    <router-link :to="{ name: 'Home' }">Home</router-link>
   </div>
   <router-view />
 </template>

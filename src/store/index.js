@@ -7,7 +7,11 @@ export default createStore({
     recipedetails: [],
     ingredients: [],
     //recipedetail: [],
-    recipetype: "",
+    recipetype: {
+      // mealtype: "",
+      // cuisine: "",
+      // diettype: "",
+    },
   },
   mutations: {
     GET_RECIPES(state, recipes) {
@@ -30,7 +34,7 @@ export default createStore({
     getData({ commit }, query) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=376a071d9e3f4a76a57cb68329ff1cff&number=20`
+          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=3f55c48fbbf3473ab1725e8054a55b71&number=20`
         )
 
         .then((res) => {
@@ -41,7 +45,7 @@ export default createStore({
     getRecipeDetails({ commit }, id) {
       return axios
         .get(
-          ` https://api.spoonacular.com/recipes/${id}/information?apiKey=376a071d9e3f4a76a57cb68329ff1cff&includeNutrition=false`
+          ` https://api.spoonacular.com/recipes/${id}/information?apiKey=3f55c48fbbf3473ab1725e8054a55b71&includeNutrition=false`
         )
         .then((res) => {
           commit("GET_RECIPE_DETAILS", res.data);
@@ -51,7 +55,7 @@ export default createStore({
     getIngredients({ commit }, id) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=376a071d9e3f4a76a57cb68329ff1cff&includeNutrition=false`
+          `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=3f55c48fbbf3473ab1725e8054a55b71&includeNutrition=false`
         )
         .then((res) => {
           commit("GET_INGREDIENTS", res.data.ingredients);
@@ -79,14 +83,18 @@ export default createStore({
     //     //console.log("Somgthing wrong.");
     //   }
     // },
-    getRecipeType({ commit }, mealtype, cuisine, diettype, time) {
+    getRecipeType({ commit }, { mealtype, cuisine, diettype, allergie }) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&type=${
+          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=3f55c48fbbf3473ab1725e8054a55b71&type=${
             mealtype ?? ""
-          }&diet=${diettype ?? ""}&cuisine=${cuisine ?? ""}&sort=${time}`
+          }&cuisine=${cuisine ?? ""}&diet=${diettype ?? ""}&intolerances=${
+            allergie ?? ""
+          }`
         )
-        .then((res) => commit("GET_RECIPE_TYPE", res.data.results))
+        .then((res) => {
+          commit("GET_RECIPE_TYPE", res.data.results);
+        })
         .catch((err) => console.log(err));
     },
   },

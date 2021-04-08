@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Ingredients</h3>
+    <strong> <h3>Ingredients</h3></strong>
     <ul>
       <li v-for="item in ingredients" :key="item.index">
         {{ item.name }}: {{ item.amount.metric.value }}

@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import RecipeDetail from "@/views/RecipeDetail.vue";
-import CousineList from "@/views/CousineList.vue";
+
 import NotFound from "@/views/NotFound.vue";
 import NetworkIssue from "@/views/NetworkIssue.vue";
 import store from "@/store/index.js";
 
 const routes = [
   {
-    path: "/",
+    path: "/recipe",
     name: "Home",
     component: Home,
   },
@@ -37,11 +37,11 @@ const routes = [
         });
     },
   },
-  {
-    path: "/cousine-list/",
-    name: "cousinelist",
-    component: CousineList,
-  },
+  // {
+  //   path: "/cousine-list/",
+  //   name: "cousinelist",
+  //   component: CousineList,
+  // },
   {
     path: "/404",
     name: "404",
