@@ -1,5 +1,15 @@
 <template>
   <div>
+    <div class="search-bar">
+      <input
+        type="text"
+        @keyup.enter="submit"
+        v-model="query"
+        placeholder="Find a recipe..."
+        class="border py-2 px-3 text-gray-400 focus-within:text-gray-600 ..."
+      />
+    </div>
+
     <div class="mealtype">
       <label for="">MealType</label>
       <select v-model="mealtype">
@@ -65,32 +75,34 @@
     <button @click="button">Search</button>
     <button @click="reset">Reset</button>
 
-    <div>
-      <div v-for="type in recipetype" :key="type.index">
-        <router-link :to="{ name: 'recipedetails', params: { id: type.id } }">
-          <img :src="type.image" alt="" />
-          <p>{{ type.title }}</p>
-        </router-link>
-      </div>
-    </div>
+    <div></div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
   data() {
     return {
+      query: "",
       mealtype: "null",
       cuisine: "null",
       diettype: "null",
       allergie: "null",
     };
   },
-  computed: mapState(["recipetype"]),
   methods: {
+    submit() {
+      this.$store.dispatch("getData", {
+        query: this.query,
+        mealtype: this.mealtype,
+        cuisine: this.cuisine,
+        diettype: this.diettype,
+        allergie: this.allergie,
+      });
+    },
     button() {
-      this.$store.dispatch("getRecipeType", {
+      this.$store.dispatch("getData", {
+        query: this.query,
         mealtype: this.mealtype,
         cuisine: this.cuisine,
         diettype: this.diettype,
@@ -98,14 +110,10 @@ export default {
       });
     },
     reset() {
-      // this.mealtype = "";
-      // this.cuisine = "";
-      // this.diettype = "";
-      // this.allergie = "";
       location.reload();
     },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style></style>
