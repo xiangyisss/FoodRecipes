@@ -17,6 +17,9 @@ export default createStore({
     GET_INGREDIENTS(state, ingredients) {
       state.ingredients = ingredients;
     },
+    DEFAULT_RECIPES(state, recipes) {
+      state.recipes = recipes;
+    },
   },
   actions: {
     getData({ commit }, { query, mealtype, cuisine, diettype, allergie }) {
@@ -52,6 +55,14 @@ export default createStore({
         .then((res) => {
           commit("GET_INGREDIENTS", res.data.ingredients);
         })
+        .catch((err) => console.log(err));
+    },
+    defaultRecipes({ commit }) {
+      axios
+        .get(
+          "https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=3f55c48fbbf3473ab1725e8054a55b71&number=12"
+        )
+        .then((res) => commit("DEFAULT_RECIPES", res.data.results))
         .catch((err) => console.log(err));
     },
   },

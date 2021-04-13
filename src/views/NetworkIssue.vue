@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>
+    <h3 class="text-warning bg-dark">
       It looks you're experiencing some network issues, please click the back
       button and try again.
     </h3>
