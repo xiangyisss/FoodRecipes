@@ -13,6 +13,9 @@
 import { mapState } from "vuex";
 export default {
   computed: mapState(["recipes"]),
+  created() {
+    this.$store.dispatch("defaultRecipes");
+  },
 };
 </script>
 
