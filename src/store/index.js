@@ -6,8 +6,6 @@ export default createStore({
     recipes: {},
     recipedetails: {},
     ingredients: {},
-    //recipedetail: [],
-    recipetype: {},
   },
   mutations: {
     GET_RECIPES(state, recipes) {
@@ -19,18 +17,19 @@ export default createStore({
     GET_INGREDIENTS(state, ingredients) {
       state.ingredients = ingredients;
     },
-    // GET_RECIPE_DETAIL(state, detail) {
-    //   state.recipedetail = detail;
-    // },
-    GET_RECIPE_TYPE(state, recipetype) {
-      state.recipetype = recipetype;
+    DEFAULT_RECIPES(state, recipes) {
+      state.recipes = recipes;
     },
   },
   actions: {
-    getData({ commit }, query) {
+    getData({ commit }, { query, mealtype, cuisine, diettype, allergie }) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=376a071d9e3f4a76a57cb68329ff1cff&number=20`
+          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=3f55c48fbbf3473ab1725e8054a55b71&type=${
+            mealtype ?? ""
+          }&cuisine=${cuisine ?? ""}&diet=${diettype ?? ""}&intolerances=${
+            allergie ?? ""
+          }`
         )
 
         .then((res) => {
@@ -41,7 +40,7 @@ export default createStore({
     getRecipeDetails({ commit }, id) {
       return axios
         .get(
-          ` https://api.spoonacular.com/recipes/${id}/information?apiKey=376a071d9e3f4a76a57cb68329ff1cff&includeNutrition=false`
+          ` https://api.spoonacular.com/recipes/${id}/information?apiKey=67c89ec4981743d5a2fee1c103ed3960&includeNutrition=false`
         )
         .then((res) => {
           commit("GET_RECIPE_DETAILS", res.data);
@@ -51,33 +50,21 @@ export default createStore({
     getIngredients({ commit }, id) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=376a071d9e3f4a76a57cb68329ff1cff&includeNutrition=false`
+          `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=67c89ec4981743d5a2fee1c103ed3960&includeNutrition=false`
         )
         .then((res) => {
           commit("GET_INGREDIENTS", res.data.ingredients);
         })
         .catch((err) => console.log(err));
     },
-
-    getRecipeType({ commit }, { mealtype, cuisine, diettype, allergie }) {
+    defaultRecipes({ commit }) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?&apiKey=376a071d9e3f4a76a57cb68329ff1cff&type=${
-            mealtype ?? ""
-          }&cuisine=${cuisine ?? ""}&diet=${diettype ?? ""}&intolerances=${
-            allergie ?? ""
-          }`
+          "https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=3f55c48fbbf3473ab1725e8054a55b71&number=12"
         )
-        .then((res) => {
-          commit("GET_RECIPE_TYPE", res.data.results);
-        })
+        .then((res) => commit("DEFAULT_RECIPES", res.data.results))
         .catch((err) => console.log(err));
     },
   },
   modules: {},
-  // getters: {
-  //   getRecipeById: (state) => (id) => {
-  //     return state.recipedetails.find((recipe) => recipe.id === id);
-  //   },
-  // },
 });

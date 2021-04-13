@@ -6,7 +6,7 @@
     >
     <p>{{ recipedetails.summary }}</p>
     <p>HealthScore: {{ recipedetails.healthScore }}</p>
-    <p>Total: {{ recipedetails.readyInMinutes }} minutes</p>
+    <p>Ready in : {{ recipedetails.readyInMinutes }} minutes</p>
     <p>Price per serving: {{ recipedetails.pricePerServing }}</p>
 
     Dish type:
@@ -39,13 +39,4 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.type {
-  height: 80px;
-  width: 200px;
-  border: 1px solid black;
-  border-radius: 5px;
-  overflow-y: scroll;
-}
-</style>
+<style scoped></style>
