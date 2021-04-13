@@ -6,7 +6,6 @@
         @keyup.enter="submit"
         v-model="query"
         placeholder="Find a recipe..."
-        class="border py-2 px-3 text-gray-400 focus-within:text-gray-600 ..."
       />
     </div>
 
