@@ -25,7 +25,7 @@ export default createStore({
     getData({ commit }, { query, mealtype, cuisine, diettype, allergie }) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=3f55c48fbbf3473ab1725e8054a55b71&type=${
+          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=67c89ec4981743d5a2fee1c103ed3960&type=${
             mealtype ?? ""
           }&cuisine=${cuisine ?? ""}&diet=${diettype ?? ""}&intolerances=${
             allergie ?? ""
@@ -60,7 +60,7 @@ export default createStore({
     defaultRecipes({ commit }) {
       axios
         .get(
-          "https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=3f55c48fbbf3473ab1725e8054a55b71&number=12"
+          "https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=67c89ec4981743d5a2fee1c103ed3960&number=12"
         )
         .then((res) => commit("DEFAULT_RECIPES", res.data.results))
         .catch((err) => console.log(err));

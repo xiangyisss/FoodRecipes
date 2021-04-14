@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <div v-for="recipe in recipes" :key="recipe.index">
-      <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
-        <img :src="recipe.image" style="height: 150px" />
-        <p>{{ recipe.title }}</p>
-      </router-link>
+  <section class="main-section">
+    <div class="row">
+      <div v-for="recipe in recipes" :key="recipe.index">
+        <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
+          <img :src="recipe.image" />
+          <p>{{ recipe.title }}</p>
+        </router-link>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
