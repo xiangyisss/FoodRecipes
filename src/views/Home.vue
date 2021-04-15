@@ -1,20 +1,32 @@
 <template>
   <div class="Home">
-    <header class="header">
-      <div class="logo">Logo</div>
-      <nav>
-        <ul class="nav-list">
-          <li class="nav-list-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-list-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <search-section />
-    <recipe-data />
+    <div class="container">
+      <header class="header">
+        <div class="logo">Foodies</div>
+        <nav>
+          <ul class="nav-list">
+            <li class="nav-list-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-list-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <article>
+        <div class="hero-section">
+          <div class="quote">
+            <h1>All happiness depends on a leisurely breakfast</h1>
+            <br />
+            <p>John Gunther</p>
+          </div>
+        </div>
+        <search-section />
+        <recipe-data />
+      </article>
+    </div>
+    <!--End of container-->
   </div>
 </template>
 
@@ -34,19 +46,23 @@ export default {
 </script>
 
 <style scoped>
-header {
+.container {
   width: 80%;
-  height: 50vh;
-  min-width: 500px;
-  background: url("../assets/background.jpg");
-  background-size: cover;
-  background-position: center;
+  min-width: 480px;
   margin: 0 auto;
+}
+header {
+  height: 10vh;
+
+  background-color: #fff;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+.logo {
+  color: black;
+}
 .nav-list {
   display: flex;
 }
@@ -59,10 +75,28 @@ header {
   margin-left: 12px;
 }
 .header {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-@media (max-width: 675px) {
+/* @media (max-width: 675px) {
+} */
+.hero-section {
+  height: 80vh;
+  background-color: #fff;
+  background-image: url("../assets/bg-bread.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.quote {
+  max-width: 70%;
+  position: absolute;
+  bottom: 22%;
+  right: 5%;
+  background: rgb(rgba(231, 132, 221, 0.2));
+  backdrop-filter: blur(2px);
 }
 </style>

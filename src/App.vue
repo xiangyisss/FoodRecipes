@@ -1,5 +1,7 @@
 <template>
-  <div id="nav"></div>
+  <!-- <div id="nav">
+    <router-link :to="{ name: 'Home' }">Home</router-link>
+  </div> -->
   <router-view />
 </template>
 
@@ -8,6 +10,11 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
+}
+
+#nav {
+  width: 80%;
+  background-color: yellowgreen;
 }
 
 body {
