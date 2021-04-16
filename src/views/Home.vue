@@ -15,13 +15,14 @@
         </nav>
       </header>
       <article>
-        <div class="hero-section">
+        <!-- <div class="hero-section">
           <div class="quote">
             <h1>All happiness depends on a leisurely breakfast</h1>
             <br />
             <p>John Gunther</p>
           </div>
-        </div>
+        </div> -->
+        <hero-section />
         <search-section />
         <recipe-data />
       </article>
@@ -31,11 +32,12 @@
 </template>
 
 <script>
+import HeroSection from "@/components/HeroSection.vue";
 import SearchSection from "../components/SearchSection.vue";
 import RecipeData from "../components/RecipeData.vue";
 
 export default {
-  components: { SearchSection, RecipeData },
+  components: { SearchSection, RecipeData, HeroSection },
   name: "Home",
   data() {
     return {
