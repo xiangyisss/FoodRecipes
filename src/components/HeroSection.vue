@@ -6,13 +6,13 @@
   >
     <img :src="currentImage" alt="current image" />
     <div class="quote">
-      <h4>{{ curretQuote.quote }}</h4>
+      <h4>{{ currentQuote.quote }}</h4>
       <br />
-      <p>{{ curretQuote.by }}</p>
+      <p>{{ currentQuote.by }}</p>
     </div>
-    <button @click="next">Next</button>
-    <button @click="prev">Prev</button>
   </div>
+  <button @click="next">Next</button>
+  <button @click="prev">Prev</button>
 </template>
 
 <script>
@@ -60,7 +60,7 @@ export default {
     currentImage() {
       return this.images[Math.abs(this.currentIndex) % this.images.length];
     },
-    curretQuote() {
+    currentQuote() {
       return this.quotes[Math.abs(this.currentIndex) % this.quotes.length];
     },
   },
@@ -71,21 +71,23 @@ export default {
 .hero-slide-container {
   height: 80vh;
   position: relative;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img {
   object-fit: cover;
   width: 100%;
-  height: auto;
 }
 .quote {
   width: 70%;
-  height: 15%;
   position: absolute;
   bottom: 22%;
-  right: 5%;
-  /* background: rgb(rgba(231, 132, 221, 0.2)); */
-  background-color: tomato;
+  left: 50%;
+  background: rgb(rgba(231, 132, 221, 0.2));
   backdrop-filter: blur(2px);
 }
 </style>

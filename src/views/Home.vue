@@ -11,6 +11,9 @@
             <li class="nav-list-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
+            <li class="nav-list-item">
+              <a class="nav-link" href="#">Search</a>
+            </li>
           </ul>
         </nav>
       </header>
@@ -55,9 +58,7 @@ export default {
 }
 header {
   height: 10vh;
-
   background-color: #fff;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,9 +82,9 @@ header {
   font-weight: 500;
 }
 
-/* @media (max-width: 675px) {
-} */
-.hero-section {
+@media (max-width: 675px) {
+}
+/* .hero-section {
   height: 80vh;
   background-color: #fff;
   background-image: url("../assets/bg-bread.jpg");
@@ -91,14 +92,14 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-}
+} */
 
-.quote {
+/*.quote {
   max-width: 70%;
   position: absolute;
   bottom: 22%;
   right: 5%;
   background: rgb(rgba(231, 132, 221, 0.2));
   backdrop-filter: blur(2px);
-}
+} */
 </style>

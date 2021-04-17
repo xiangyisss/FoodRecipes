@@ -4,10 +4,16 @@
     <strong>
       <p>Name: {{ recipedetails.title }}</p></strong
     >
-    <p>{{ recipedetails.summary }}</p>
+    <ingredient-and-step :id="id" />
+
+    <hr />
+
+    <p>Recipe: {{ tidyString(recipedetails.instructions) }}</p>
+
+    <hr />
     <p>HealthScore: {{ recipedetails.healthScore }}</p>
     <p>Ready in : {{ recipedetails.readyInMinutes }} minutes</p>
-    <p>Price per serving: {{ recipedetails.pricePerServing }}</p>
+    <p>Price per serving: {{ recipedetails.servings }}</p>
 
     Dish type:
     <div class="type">
@@ -22,8 +28,6 @@
         {{ diet }}
       </p>
     </div>
-
-    <ingredient-and-step :id="id" />
   </div>
 </template>
 
@@ -36,6 +40,14 @@ export default {
   computed: mapState(["recipedetails"]),
   created() {
     this.$store.dispatch("getRecipeDetails", this.id);
+  },
+  methods: {
+    tidyString(dirtyString) {
+      return dirtyString.replaceAll(
+        /(<ul>|<ol>|<li>|<\/li>|<\/ul>|<\/ol>|<p>|<\/p>|<br>)/g,
+        "\n"
+      );
+    },
   },
 };
 </script>
