@@ -5,6 +5,8 @@
   <router-view />
 </template>
 
+<script></script>
+
 <style>
 * {
   padding: 0%;
@@ -12,10 +14,10 @@
   box-sizing: border-box;
 }
 
-#nav {
+/* #nav {
   width: 80%;
   background-color: yellowgreen;
-}
+} */
 
 body {
   font-family: Lora;

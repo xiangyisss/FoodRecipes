@@ -1,21 +1,21 @@
 <template>
-  <div>
+  <div class="recipe-section">
     <img :src="recipedetails.image" alt="" />
     <strong>
-      <p>Name: {{ recipedetails.title }}</p></strong
+      <p>{{ recipedetails.title }}</p></strong
     >
     <ingredient-and-step :id="id" />
 
     <hr />
 
-    <p>Recipe: {{ tidyString(recipedetails.instructions) }}</p>
+    <p>Instructions: {{ tidyString(recipedetails.instructions) }}</p>
 
     <hr />
     <p>HealthScore: {{ recipedetails.healthScore }}</p>
-    <p>Ready in : {{ recipedetails.readyInMinutes }} minutes</p>
+    <p>Total time : {{ recipedetails.readyInMinutes }} minutes</p>
     <p>Price per serving: {{ recipedetails.servings }}</p>
 
-    Dish type:
+    Course:
     <div class="type">
       <p v-for="dish in recipedetails.dishTypes" :key="dish.index">
         {{ dish }}

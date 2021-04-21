@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     startSlideImage() {
-      this.timer = setInterval(this.next, 4000);
+      this.timer = setInterval(this.next, 3000);
     },
     next() {
       this.currentIndex++;
@@ -69,18 +69,19 @@ export default {
 
 <style scoped>
 .hero-slide-container {
-  height: 80vh;
   position: relative;
   overflow: hidden;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.1s ease;
 }
 
 img {
   object-fit: cover;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 .quote {
   width: 70%;
