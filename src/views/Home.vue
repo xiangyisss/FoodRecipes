@@ -2,7 +2,7 @@
   <div class="home">
     <header class="header">
       <router-link :to="{ name: 'Home' }">
-        <div class="logo">Foodies</div>
+        <div class="logo">Chef</div>
       </router-link>
       <div class="search-icon">
         <router-link :to="{ name: 'search' }">
@@ -13,16 +13,16 @@
 
     <div class="hero-section"></div>
 
-    <a href="#"
+    <!-- <a href="#"
       ><img
         src="../assets/up-arrow.svg"
         class="goToTop"
         alt="up-arrow"
         @click="scrollToTop"
         v-if="showButton"
-    /></a>
+    /></a> -->
 
-    <recipe-data class="recipe-data" />
+    <recipe-data />
   </div>
 </template>
 
@@ -58,13 +58,13 @@ export default {
 </script>
 
 <style scoped>
-.home {
+/* .home {
   width: 100%;
-}
+} */
 .header {
   width: 90%;
   margin: 0 auto;
-  height: 8vh;
+  height: 56px;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -79,13 +79,13 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
+  transition: 0.7s;
 }
 
 .search-icon:hover {
   cursor: pointer;
   background-color: black;
   opacity: 0.6;
-  transition: 0.3s;
 }
 
 .search-icon:hover img {
@@ -114,12 +114,19 @@ export default {
 }
 
 .hero-section {
-  background-image: url("../assets/bg-orange.jpg");
+  background-image: url("../assets/bg-bread.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 80vh;
+  min-height: 400px;
+  width: 100%;
 }
+
+/* .hero-section img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+} */
 
 .goToTop {
   width: 2rem;
@@ -135,24 +142,10 @@ export default {
   transition: all 0.2s ease;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 575px) {
+  .hero-section {
+    min-height: calc(100vh - 56px);
+    background-color: white;
+  }
 }
-/* .hero-section {
-  height: 80vh;
-  background-color: #fff;
-  background-image: url("../assets/bg-bread.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-} */
-
-/*.quote {
-  max-width: 70%;
-  position: absolute;
-  bottom: 22%;
-  right: 5%;
-  background: rgb(rgba(231, 132, 221, 0.2));
-  backdrop-filter: blur(2px);
-} */
 </style>

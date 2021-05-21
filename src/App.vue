@@ -12,16 +12,17 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
+  font-family: Lora;
+  font-size: 1rem;
+  color: #37474f;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 /* #nav {
   width: 80%;
   background-color: yellowgreen;
 } */
-
-body {
-  font-family: Lora;
-  font-size: 1.125rem;
-  font-weight: 400;
-}
 </style>

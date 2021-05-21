@@ -8,7 +8,9 @@
 
     <hr />
 
-    <p>Instructions: {{ tidyString(recipedetails.instructions) }}</p>
+    <p class="instruct">
+      Instructions: {{ tidyString(recipedetails.instructions) }}
+    </p>
 
     <hr />
     <p>HealthScore: {{ recipedetails.healthScore }}</p>
@@ -51,4 +53,8 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+p :not(.instruct) {
+  text-transform: capitalize;
+}
+</style>

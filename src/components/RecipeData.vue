@@ -1,12 +1,14 @@
 <template>
+  <div class="popular-recipes">Popular recipes</div>
   <section class="main-section">
-    <div class="title">Popular recipes</div>
     <div class="recipe-card" v-for="recipe in recipes" :key="recipe.index">
       <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
         <img :src="recipe.image" style="width: 100%" />
-        <p>{{ recipe.title }}</p>
+        <p class="title">{{ recipe.title }}</p>
       </router-link>
-      <p class="text">{{ recipedetails.readyInMinutes }}Minutes</p>
+      <p class="text" style="color: #62727b">
+        {{ recipedetails.readyInMinutes }}Minutes
+      </p>
     </div>
   </section>
 </template>
@@ -22,9 +24,10 @@ export default {
 </script>
 
 <style scoped>
-.title {
-  width: 90%;
-  margin: 0 auto;
+.popular-recipes {
+  text-align: center;
+  font-weight: 600;
+  margin: 56px auto;
 }
 .recipe-card {
   margin-left: auto;
@@ -41,11 +44,13 @@ export default {
   .main-section {
     width: 90%;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
-  .recipe-card {
-    width: 30%;
+  .popular-recipes {
+    width: 90%;
   }
 }
 </style>
