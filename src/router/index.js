@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import RecipeDetail from "@/views/RecipeDetail.vue";
-import Search from "@/views/Search.vue";
+import SearchPage from "@/views/SearchPage.vue";
 import NotFound from "@/views/NotFound.vue";
 import NetworkIssue from "@/views/NetworkIssue.vue";
 import store from "@/store/index.js";
@@ -40,7 +40,7 @@ const routes = [
   {
     path: "/search",
     name: "search",
-    component: Search,
+    component: SearchPage,
   },
   {
     path: "/404",

@@ -21,6 +21,7 @@
         @click="scrollToTop"
         v-if="showButton"
     /></a> -->
+    <div class="popular-recipes">Popular recipes</div>
 
     <recipe-data />
   </div>
@@ -127,6 +128,12 @@ export default {
   display: block;
   height: auto;
 } */
+
+.popular-recipes {
+  text-align: center;
+  font-weight: 600;
+  margin: 56px auto;
+}
 
 .goToTop {
   width: 2rem;

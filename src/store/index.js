@@ -31,7 +31,6 @@ export default createStore({
             allergie ?? ""
           }`
         )
-
         .then((res) => {
           commit("GET_RECIPES", res.data.results);
         })

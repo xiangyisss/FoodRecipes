@@ -1,15 +1,10 @@
 <template>
-  <div class="recipe-section">
-    <!-- <img :src="recipedetails.image" alt="" />
+  <div>
+    <img :src="recipedetails.image" alt="" />
     <strong>
       <p>{{ recipedetails.title }}</p></strong
-    > -->
-
-    <recipe-instruction />
-    <hr />
-    <ingredient-and-step :id="id" />
-
-    <!-- <p class="instruct">
+    >
+    <p class="instruct">
       Instructions: {{ tidyString(recipedetails.instructions) }}
     </p>
 
@@ -30,16 +25,30 @@
       <p v-for="diet in recipedetails.diets" :key="diet.index">
         {{ diet }}
       </p>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
-import IngredientAndStep from "@/components/IngredientAndStep.vue";
-import RecipeInstruction from "../components/Recipe-Instruction.vue";
+import { mapState } from "vuex";
 export default {
-  props: ["id"],
-  components: { IngredientAndStep, RecipeInstruction },
+  computed: mapState(["recipedetails"]),
+  created() {
+    this.$store.dispatch("getRecipeDetails", this.id);
+  },
+  methods: {
+    tidyString(dirtyString) {
+      return dirtyString.replaceAll(
+        /(<ul>|<ol>|<li>|<\/li>|<\/ul>|<\/ol>|<p>|<\/p>|<br>)/g,
+        "\n"
+      );
+    },
+  },
 };
 </script>
-<style scoped></style>
+
+<style scoped>
+p :not(.instruct) {
+  text-transform: capitalize;
+}
+</style>

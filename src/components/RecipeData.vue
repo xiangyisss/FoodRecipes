@@ -1,5 +1,4 @@
 <template>
-  <div class="popular-recipes">Popular recipes</div>
   <section class="main-section">
     <div class="recipe-card" v-for="recipe in recipes" :key="recipe.index">
       <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
@@ -24,11 +23,6 @@ export default {
 </script>
 
 <style scoped>
-.popular-recipes {
-  text-align: center;
-  font-weight: 600;
-  margin: 56px auto;
-}
 .recipe-card {
   margin-left: auto;
   margin-right: auto;

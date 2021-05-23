@@ -1,7 +1,7 @@
 <template>
-  <!-- <div id="nav">
+  <div id="nav">
     <router-link :to="{ name: 'Home' }">Home</router-link>
-  </div> -->
+  </div>
   <router-view />
 </template>
 
@@ -13,7 +13,7 @@
   margin: 0%;
   box-sizing: border-box;
   font-family: Lora;
-  font-size: 1rem;
+  font-size: 16px;
   color: #37474f;
 }
 
