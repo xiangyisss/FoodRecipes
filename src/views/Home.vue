@@ -1,18 +1,6 @@
 <template>
   <div class="home">
-    <header class="header">
-      <router-link :to="{ name: 'Home' }">
-        <div class="logo">Chef</div>
-      </router-link>
-      <div class="search-icon">
-        <router-link :to="{ name: 'search' }">
-          <img src="../assets/search-icon.svg" alt="search image" />
-        </router-link>
-      </div>
-    </header>
-
     <div class="hero-section"></div>
-
     <!-- <a href="#"
       ><img
         src="../assets/up-arrow.svg"
@@ -29,6 +17,7 @@
 
 <script>
 import RecipeData from "@/components/RecipeData.vue";
+// import NavBar from "../components/NavBar.vue";
 export default {
   components: { RecipeData },
   name: "Home",
@@ -62,57 +51,6 @@ export default {
 /* .home {
   width: 100%;
 } */
-.header {
-  width: 90%;
-  margin: 0 auto;
-  height: 56px;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  margin: 0 0.75rem;
-}
-
-.search-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  transition: 0.7s;
-}
-
-.search-icon:hover {
-  cursor: pointer;
-  background-color: black;
-  opacity: 0.6;
-}
-
-.search-icon:hover img {
-  filter: invert(99%) sepia(59%) saturate(0%) hue-rotate(337deg)
-    brightness(110%) contrast(100%);
-}
-
-.search-icon img {
-  display: block;
-  margin: 0 0.75rem;
-  width: 1rem;
-  transition: all 0.2s ease;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: black;
-}
-.nav-list-item {
-  list-style: none;
-  margin-left: 12px;
-}
-.header {
-  font-size: 1rem;
-  font-weight: 500;
-}
 
 .hero-section {
   background-image: url("../assets/bg-bread.jpg");

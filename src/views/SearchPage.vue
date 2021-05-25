@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+// import { mapState } from "vuex";
 import RecipeData from "../components/RecipeData.vue";
 import SearchSection from "../components/SearchSection.vue";
 
@@ -31,42 +31,42 @@ export default {
       show: true,
     };
   },
-  computed: mapState(["recipes", "recipedetails"]),
-  created() {
-    this.$store.dispatch("defaultRecipes", ("getRecipeDetails", this.id));
-  },
-  methods: {
-    submit() {
-      this.$store.dispatch("getData", {
-        query: this.query,
-        mealtype: this.mealtype,
-        cuisine: this.cuisine,
-        diettype: this.diettype,
-        allergie: this.allergie,
-      });
-    },
-    button() {
-      this.$store.dispatch("getData", {
-        query: this.query,
-        mealtype: this.mealtype,
-        cuisine: this.cuisine,
-        diettype: this.diettype,
-        allergie: this.allergie,
-      });
-    },
-    reset() {
-      location.reload();
-    },
-    // hideToggleMenu() {
-    //   this.show = !this.show;
-    //   let myButtons = document.querySelector(".button");
-    //   if (this.show) {
-    //     myButtons.classList.add("shown");
-    //   } else {
-    //     myButtons.classList.remove("shown");
-    //   }
-    // },
-  },
+  // computed: mapState(["recipes", "recipedetails"]),
+  // created() {
+  //   this.$store.dispatch("defaultRecipes", ("getRecipeDetails", this.id));
+  // },
+  // methods: {
+  //   submit() {
+  //     this.$store.dispatch("getData", {
+  //       query: this.query,
+  //       mealtype: this.mealtype,
+  //       cuisine: this.cuisine,
+  //       diettype: this.diettype,
+  //       allergie: this.allergie,
+  //     });
+  //   },
+  //   button() {
+  //     this.$store.dispatch("getData", {
+  //       query: this.query,
+  //       mealtype: this.mealtype,
+  //       cuisine: this.cuisine,
+  //       diettype: this.diettype,
+  //       allergie: this.allergie,
+  //     });
+  //   },
+  //   reset() {
+  //     location.reload();
+  //   },
+  //   hideToggleMenu() {
+  //     this.show = !this.show;
+  //     let myButtons = document.querySelector(".button");
+  //     if (this.show) {
+  //       myButtons.classList.add("shown");
+  //     } else {
+  //       myButtons.classList.remove("shown");
+  //     }
+  //   },
+  // },
 };
 </script>
 

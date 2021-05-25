@@ -43,7 +43,7 @@ export default createStore({
         )
         .then((res) => {
           commit("GET_RECIPE_DETAILS", res.data);
-          return res.data;
+          // return res.data;
         });
     },
     getIngredients({ commit }, id) {

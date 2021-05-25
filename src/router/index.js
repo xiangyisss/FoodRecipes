@@ -26,7 +26,7 @@ const routes = [
           next();
         })
         .catch((error) => {
-          if (error.response && error.response.status == 404) {
+          if (error.response && error.response.status === 404) {
             next({
               name: "404",
               params: { resource: "recipe" },
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/search",
-    name: "search",
+    name: "search-page",
     component: SearchPage,
   },
   {

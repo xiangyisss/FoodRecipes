@@ -5,9 +5,9 @@
         <img :src="recipe.image" style="width: 100%" />
         <p class="title">{{ recipe.title }}</p>
       </router-link>
-      <p class="text" style="color: #62727b">
+      <!-- <p class="text" style="color: #62727b">
         {{ recipedetails.readyInMinutes }}Minutes
-      </p>
+      </p> -->
     </div>
   </section>
 </template>

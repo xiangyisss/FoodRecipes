@@ -8,7 +8,6 @@
       Instructions: {{ tidyString(recipedetails.instructions) }}
     </p>
 
-    <hr />
     <p>HealthScore: {{ recipedetails.healthScore }}</p>
     <p>Total time : {{ recipedetails.readyInMinutes }} minutes</p>
     <p>Price per serving: {{ recipedetails.servings }}</p>
