@@ -3,10 +3,12 @@
     <router-link :to="{ name: 'Home' }">
       <div class="logo">Good Food</div>
     </router-link>
-    <div class="search-icon">
+    <div class="menu-bar">
       <router-link :to="{ name: 'search-page' }">
-        <!-- <img src="../assets/search-icon.svg" alt="search image" /> -->
-        <div class="menu-bar">
+        <div class="search-icon">
+          <img src="../assets/search-icon.svg" alt="search image" />
+        </div>
+        <div class="humburger-menu">
           <div class="line line-1"></div>
           <div class="line line-2"></div>
           <div class="line line-3"></div>
@@ -40,32 +42,12 @@ export default {};
 }
 
 .search-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  transition: 0.7s;
+  display: none;
+}
+
+.menu-bar {
   position: absolute;
-  top: 0;
   right: 1rem;
-}
-
-.search-icon:hover {
-  cursor: pointer;
-  background-color: black;
-  opacity: 0.6;
-}
-
-.search-icon:hover img {
-  filter: invert(99%) sepia(59%) saturate(0%) hue-rotate(337deg)
-    brightness(110%) contrast(100%);
-}
-
-.search-icon img {
-  display: block;
-  margin: 0 0.75rem;
-  width: 1rem;
-  transition: all 0.2s ease;
 }
 
 .nav-link {
@@ -87,5 +69,41 @@ export default {};
   background-color: #fff;
   margin: 0.25rem;
   border-radius: 0.25rem;
+}
+
+@media (min-width: 460px) {
+  .menu-bar {
+    height: 100%;
+    width: 3rem;
+    right: 0%;
+  }
+  .humburger-menu {
+    display: none;
+  }
+  .search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: 0.7s;
+  }
+
+  .search-icon:hover {
+    cursor: pointer;
+    background-color: black;
+    opacity: 0.6;
+  }
+
+  .search-icon:hover img {
+    filter: invert(99%) sepia(59%) saturate(0%) hue-rotate(337deg)
+      brightness(110%) contrast(100%);
+  }
+
+  .search-icon img {
+    display: block;
+    margin: 0 0.75rem;
+    width: 1rem;
+    transition: all 0.2s ease;
+  }
 }
 </style>

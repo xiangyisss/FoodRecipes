@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h1>Recipes</h1>
     <search-section />
     <recipe-data />
     <!-- <article class="main-section">
@@ -71,6 +70,9 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  margin-top: 3.5rem;
+}
 .main-section {
   padding-top: 1rem;
 }

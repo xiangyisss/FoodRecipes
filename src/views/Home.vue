@@ -48,17 +48,16 @@ export default {
 </script>
 
 <style scoped>
-/* .home {
-  width: 100%;
-} */
-
+.home {
+  margin-top: 3.5rem;
+}
 .hero-section {
   background-image: url("../assets/bg-bread.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 400px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* .hero-section img {
@@ -89,8 +88,13 @@ export default {
 
 @media (min-width: 575px) {
   .hero-section {
+    min-height: 70vh;
+  }
+}
+
+@media (min-width: 780px) {
+  .hero-section {
     min-height: calc(100vh - 56px);
-    background-color: white;
   }
 }
 </style>

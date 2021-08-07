@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="recipe-detail">
     <img :src="recipedetails.image" alt="" />
     <strong>
       <p>{{ recipedetails.title }}</p></strong
@@ -31,10 +31,11 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  props: ["id"],
   computed: mapState(["recipedetails"]),
-  created() {
-    this.$store.dispatch("getRecipeDetails", this.id);
-  },
+  // created() {
+  //   this.$store.dispatch("getRecipeDetails", this.id);
+  // },
   methods: {
     tidyString(dirtyString) {
       return dirtyString.replaceAll(
@@ -49,5 +50,21 @@ export default {
 <style scoped>
 p :not(.instruct) {
   text-transform: capitalize;
+}
+
+/* .recipe-detail {
+  position: absolute;
+  top: 56px;
+} */
+
+img {
+  margin-top: 56px;
+  width: 90%;
+}
+
+.type {
+  width: 50%;
+  height: 100px;
+  background-color: rgb(248, 115, 115);
 }
 </style>

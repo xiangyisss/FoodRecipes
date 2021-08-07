@@ -1,36 +1,8 @@
 <template>
   <div class="recipe-section">
-    <!-- <img :src="recipedetails.image" alt="" />
-    <strong>
-      <p>{{ recipedetails.title }}</p></strong
-    > -->
+    <recipe-instruction :id="id" />
 
-    <recipe-instruction />
-    <hr />
     <ingredient-and-step :id="id" />
-
-    <!-- <p class="instruct">
-      Instructions: {{ tidyString(recipedetails.instructions) }}
-    </p>
-
-    <hr />
-    <p>HealthScore: {{ recipedetails.healthScore }}</p>
-    <p>Total time : {{ recipedetails.readyInMinutes }} minutes</p>
-    <p>Price per serving: {{ recipedetails.servings }}</p>
-
-    Course:
-    <div class="type">
-      <p v-for="dish in recipedetails.dishTypes" :key="dish.index">
-        {{ dish }}
-      </p>
-    </div>
-
-    Free from:
-    <div class="type">
-      <p v-for="diet in recipedetails.diets" :key="diet.index">
-        {{ diet }}
-      </p>
-    </div> -->
   </div>
 </template>
 

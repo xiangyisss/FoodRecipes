@@ -17,12 +17,12 @@
         />
       </div>
 
-      <div class="filter" @click="show = !show">
+      <div class="filter" v-if="hideButton" @click="show = !show">
         <button>Filter</button>
       </div>
 
       <transition name="fade">
-        <div v-if="!show">
+        <div class="show-type" v-if="!show">
           <form action="url" class="search-by-type">
             <div class="type">
               <div class="form-item">
@@ -109,8 +109,17 @@ export default {
       diettype: "null",
       allergie: "null",
       show: true,
+      // windowWidth: window.innerWidth,
+      hideButton: false,
     };
   },
+  created() {
+    window.addEventListener("resize", this.myEventHandler);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.myEventHandler);
+  },
+
   methods: {
     submit() {
       this.$store.dispatch("getData", {
@@ -133,6 +142,32 @@ export default {
     reset() {
       location.reload();
     },
+    myEventHandler() {
+      if (window.innerWidth > 400) {
+        this.hideButton = true;
+      } else {
+        this.hideButton = false;
+      }
+    },
+    // hideButton() {
+
+    //   window.addEventListener("resize", function () {
+    //     if (window.matchMedia("(min-width: 500px)").matches) {
+    //       console.log("Screen width is at least 500px");
+    //     } else {
+    //       console.log("Screen less than 500px");
+    //     }
+    //   });
+    // },
+    // hideFilterButton() {
+    //   const width = window.matchMedia("(min-width: 780px)");
+    //   // let hideButton = document.getElementsByClassName("filter");
+
+    //   if (width.matches) {
+    //     // hideButton.style.display = "none";
+    //     console.log("hello world");
+    //   }
+    // },
   },
 };
 </script>
@@ -243,4 +278,27 @@ export default {
 .btn-2 {
   background-color: rgb(236, 74, 74);
 }
+
+@media (min-width: 575px) {
+  .search-bar {
+    width: 40%;
+  }
+  .type {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 10px;
+  }
+}
+
+@media (min-width: 780px) {
+  .type {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+  .form-item {
+    margin: 0 2rem;
+  }
+  .filter {
+    display: none;
+  }
+} ;
 </style>

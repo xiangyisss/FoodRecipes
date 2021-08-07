@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ingredient">
     <strong> <h3>Ingredients</h3></strong>
     <ul>
       <li v-for="item in ingredients" :key="item.index">
