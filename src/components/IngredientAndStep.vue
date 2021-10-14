@@ -13,6 +13,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  name: "IngredientAndStep",
   props: ["id"],
   computed: mapState(["ingredients"]),
   created() {

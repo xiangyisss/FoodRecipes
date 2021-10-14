@@ -4,7 +4,9 @@
     <strong>
       <p>Name: {{ recipedetails.title }}</p></strong
     >
-    <p>{{ recipedetails.summary }}</p>
+    <!-- <p>{{ recipedetails.summary }}</p> -->
+    <!-- <p></p> -->
+    <summary v-html="$store.state.recipedetails.summary"></summary>
     <p>HealthScore: {{ recipedetails.healthScore }}</p>
     <p>Ready in : {{ recipedetails.readyInMinutes }} minutes</p>
     <p>Price per serving: {{ recipedetails.pricePerServing }}</p>
