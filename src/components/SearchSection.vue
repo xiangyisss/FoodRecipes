@@ -143,11 +143,12 @@ export default {
   border-radius: 4px;
 }
 .search_by_type {
+  width: 70%;
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem auto;
+  /* margin-bottom: 3rem; */
 }
 .search_by_type > * {
   display: flex;
@@ -204,5 +205,21 @@ select:hover {
 .resetBtn {
   background-color: rgb(56, 138, 170);
   color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .search_bar input {
+    width: 90%;
+  }
+  .search_by_type {
+    width: 90%;
+  }
+  .search_by_type label {
+    font-size: 1rem;
+    margin: 0 0 0.25rem 0;
+  }
+  .searchAndSetBtn {
+    width: 35%;
+  }
 }
 </style>

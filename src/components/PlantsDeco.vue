@@ -17,7 +17,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
