@@ -1,16 +1,16 @@
 <template>
-  <div id="nav">
+  <div class="nav">
     <router-link :to="{ name: 'Home' }"><top-logo /></router-link>
-    <leaves-images />
+    <!-- <plants-deco /> -->
   </div>
   <router-view />
 </template>
 
 <script>
-import LeavesImages from "./components/LeavesImages.vue";
+// import PlantsDeco from "./components/PlantsDeco.vue";
 import TopLogo from "./components/TopLogo.vue";
 export default {
-  components: { TopLogo, LeavesImages },
+  components: { TopLogo },
 };
 </script>
 
@@ -20,7 +20,14 @@ export default {
   padding: 0;
   font-family: "Comic Neue", cursive;
 }
+
 a {
   text-decoration: none;
+}
+.nav {
+  width: 100%;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
 }
 </style>

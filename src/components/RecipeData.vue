@@ -35,17 +35,21 @@ export default {
 }
 .recipeContainer {
   display: flex;
+  background-color: rgba(251, 253, 226, 0.493);
 }
 .recipeImage {
-  margin-bottom: 0.75rem;
   max-width: 23rem;
 }
 .recipeName {
   max-width: 280px;
-  font-weight: 600;
-  color: black;
+  min-height: 80px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: rgb(43, 41, 41);
+  padding-left: 0.75rem;
+  margin-top: 0.75rem;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: wrap;
+  /* overflow: hidden; */
 }
 </style>

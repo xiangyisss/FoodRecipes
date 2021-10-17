@@ -123,9 +123,11 @@ export default {
 .searchSection {
   width: 90%;
   margin: 0 auto;
-  display: grid;
-  place-items: center;
-  padding: 4rem 1rem 0 1rem;
+  /* margin-top: 20vh; */
+  /* margin: 0 auto; */
+  /* display: flex;
+  place-items: center; */
+  padding: 2rem 1rem 0 1rem;
 }
 .search_bar {
   width: 100%;
@@ -167,22 +169,6 @@ select {
   cursor: pointer;
   background-color: #6a926b5d;
 }
-/* .mealtype_section {
-  position: relative;
-}
-.mealtype_section::after {
-  content: "";
-  width: 0.8rem;
-  height: 0.8rem;
-  background-image: url("../assets/triangle.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  position: absolute;
-  top: 72%;
-  right: 7%;
-  cursor: pointer;
-} */
 .search_bar input:focus {
   border-radius: 1.5rem;
   transition: all 0.3s ease;
@@ -198,6 +184,7 @@ select:hover {
 }
 .searchAndSetBtn {
   width: 15%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <!-- <top-logo /> -->
-    <!-- <leaves-images /> -->
+    <hero-section />
     <search-section />
     <recipe-data />
   </div>
@@ -10,11 +9,10 @@
 <script>
 import SearchSection from "../components/SearchSection.vue";
 import RecipeData from "../components/RecipeData.vue";
-// import LeavesImages from "../components/LeavesImages.vue";
-// import TopLogo from "../components/TopLogo.vue";
+import HeroSection from "../components/HeroSection.vue";
 
 export default {
-  components: { SearchSection, RecipeData },
+  components: { SearchSection, RecipeData, HeroSection },
   name: "Home",
   data() {
     return {
@@ -22,13 +20,27 @@ export default {
       popular: "",
     };
   },
+  mounted() {
+    this.$store.dispatch("defaultRecipes");
+  },
 };
 </script>
 
 <style scoped>
 .home {
   width: 100%;
+  /* margin-top: 9vh; */
 }
+/* .hero {
+  margin: 0 auto;
+  width: 50rem;
+  min-width: 280px;
+  height: 80vh;
+  background-image: url("../assets/testing.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
 /* .leafImage {
   background-image: url("../assets/leafbg.png");
   background-repeat: no-repeat;

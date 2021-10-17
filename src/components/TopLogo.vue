@@ -12,14 +12,17 @@ export default {
 
 <style scoped>
 .title {
-  margin: 1rem 0 1rem 0;
+  width: 100%;
+  margin: 0 0 0.5rem 0;
   display: grid;
   place-items: center;
-  min-height: 20vh;
+  min-height: 8vh;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 p {
   cursor: pointer;
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #335735;
 }
