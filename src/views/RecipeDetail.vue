@@ -19,7 +19,7 @@
     </div>
 
     <div class="step_and_summary">
-      <ingredient-and-step :id="id" />
+      <ingredient-and-step v-bind="$attrs" :id="id" />
       <div class="instructions_box">
         <h3>Instructions</h3>
         <summary
