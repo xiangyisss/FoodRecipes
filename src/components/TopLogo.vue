@@ -18,7 +18,11 @@ export default {
   place-items: center;
   min-height: 8vh;
   background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.11) 0px 3px 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 p {
   cursor: pointer;

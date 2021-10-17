@@ -29,25 +29,6 @@ export default {
 <style scoped>
 .home {
   width: 100%;
-  /* margin-top: 9vh; */
+  margin-top: 8vh;
 }
-/* .hero {
-  margin: 0 auto;
-  width: 50rem;
-  min-width: 280px;
-  height: 80vh;
-  background-image: url("../assets/testing.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
-/* .leafImage {
-  background-image: url("../assets/leafbg.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 20%;
-  height: 80vh;
-  padding: 0;
-} */
 </style>

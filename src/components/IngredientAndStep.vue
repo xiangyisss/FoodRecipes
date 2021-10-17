@@ -1,6 +1,6 @@
 <template>
   <div class="ingredients_steps">
-    <strong> <h3>Ingredients</h3></strong>
+    <h3>Ingredients</h3>
     <ul>
       <li v-for="item in ingredients" :key="item.index">
         {{ item.name }}: {{ item.amount.metric.value }}
@@ -22,4 +22,19 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+ul {
+  list-style: none;
+}
+ul li::before {
+  content: "\2022";
+  color: rgb(255, 174, 0);
+  font-weight: bold;
+  display: inline-block;
+  width: 1rem;
+}
+ul li {
+  padding-top: 0.5rem;
+  line-height: 1.5rem;
+}
+</style>

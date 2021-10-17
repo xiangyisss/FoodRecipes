@@ -40,7 +40,7 @@ export default createStore({
     getRecipeDetails({ commit }, id) {
       return axios
         .get(
-          ` https://api.spoonacular.com/recipes/${id}/information?apiKey=67c89ec4981743d5a2fee1c103ed3960&includeNutrition=false`
+          ` https://api.spoonacular.com/recipes/${id}/information?apiKey=3f55c48fbbf3473ab1725e8054a55b71&includeNutrition=false`
         )
         .then((res) => {
           commit("GET_RECIPE_DETAILS", res.data);
@@ -50,7 +50,7 @@ export default createStore({
     getIngredients({ commit }, id) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=67c89ec4981743d5a2fee1c103ed3960&includeNutrition=false`
+          `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=3f55c48fbbf3473ab1725e8054a55b71&includeNutrition=false`
         )
         .then((res) => {
           commit("GET_INGREDIENTS", res.data.ingredients);

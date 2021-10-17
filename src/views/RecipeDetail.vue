@@ -1,37 +1,32 @@
 <template>
   <plants-deco />
   <div class="recipe_details">
-    <strong>
-      <p class="recipename">{{ recipedetails.title }}</p></strong
-    >
-    <p>HealthScore: {{ recipedetails.healthScore }}</p>
-    <p>Ready in : {{ recipedetails.readyInMinutes }} minutes</p>
-    <p>Price per serving: {{ recipedetails.pricePerServing }}</p>
-    <h3>Dish type:</h3>
-
-    <div class="type">
-      <p v-for="dish in recipedetails.dishTypes" :key="dish.index">
-        {{ dish }}
-      </p>
+    <div class="recipename_box">
+      <p class="recipename">{{ recipedetails.title }}</p>
+    </div>
+    <div class="iconAndServing_container">
+      <div class="icon_box">
+        <img src="../assets/timer.png" alt="" />
+        <p><strong>Cook</strong> : {{ recipedetails.readyInMinutes }} mins</p>
+      </div>
+      <div class="icon_box">
+        <img src="../assets/serve.png" alt="" />
+        <p><strong>Servings</strong> : {{ recipedetails.servings }}</p>
+      </div>
+    </div>
+    <div class="recipe_image">
+      <img :src="recipedetails.image" alt="" />
     </div>
 
-    <h3>Free from:</h3>
-    <div class="type">
-      <p v-for="diet in recipedetails.diets" :key="diet.index">
-        {{ diet }}
-      </p>
-    </div>
-    <img :src="recipedetails.image" alt="" />
-    <!-- <p>{{ recipedetails.summary }}</p> -->
-    <!-- <p></p> -->
     <div class="step_and_summary">
       <ingredient-and-step :id="id" />
-
-      <summary
-        class="instructions"
-        v-html="$store.state.recipedetails.instructions"
-      ></summary>
-      <!-- Price per instructions: {{ recipedetails.instructions }} -->
+      <div class="instructions_box">
+        <h3>Instructions</h3>
+        <summary
+          class="instructions"
+          v-html="$store.state.recipedetails.instructions"
+        ></summary>
+      </div>
       <!-- <summary v-html="$store.state.recipedetails.summary"></summary> -->
     </div>
   </div>
@@ -52,34 +47,106 @@ export default {
 </script>
 <style scoped>
 .recipe_details {
-  margin: 20vh auto 0 auto;
+  margin: 15vh auto 0 auto;
   width: 90%;
   display: grid;
   place-items: center;
 }
+.recipename_box {
+  width: 100%;
+}
 .recipename {
   font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  margin: 1rem;
+  color: rgb(97, 116, 82);
 }
-img {
-  padding: 2rem;
+.recipe_image img {
+  margin-bottom: 2rem;
   background-color: #fff;
-  max-width: 380px;
+  width: 580px;
+  max-width: 580px;
 }
-.recipename {
-  margin: 2rem;
+.iconAndServing_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 2rem 0;
+}
+.icon_box {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid green;
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+  margin-right: 1rem;
+}
+.icon_box img {
+  margin-right: 0.5rem;
+}
+.icon_box select {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding-left: 0.5rem;
+  cursor: pointer;
 }
 .step_and_summary {
   width: 80%;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 5rem;
 }
-.instructions {
+.instructions_box {
   width: 50%;
+}
+summary {
+  padding-top: 0.5rem;
+  line-height: 1.5rem;
+}
+strong {
+  color: rgb(28, 31, 25);
+}
+@media screen and (max-width: 850px) {
+  .step_and_summary {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .instructions_box {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .recipe_details {
+    margin: 10vh auto 0 auto;
+    width: 90%;
+    display: grid;
+    place-items: center;
+  }
+  .recipe_image img {
+    max-width: 300px;
+  }
+
+  .recipename {
+    font-size: 1.25rem;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    line-height: 1.75rem;
+    text-align: center;
+  }
+  .iconAndServing_container {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

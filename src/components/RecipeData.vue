@@ -36,20 +36,23 @@ export default {
 .recipeContainer {
   display: flex;
   background-color: rgba(251, 253, 226, 0.493);
+  position: relative;
+}
+
+.recipeContainer:hover {
+  transform: translate(-4px, -4px);
 }
 .recipeImage {
   max-width: 23rem;
 }
 .recipeName {
-  max-width: 280px;
+  max-width: 312px;
   min-height: 80px;
   font-weight: 700;
   font-size: 1.25rem;
   color: rgb(43, 41, 41);
-  padding-left: 0.75rem;
-  margin-top: 0.75rem;
   text-overflow: ellipsis;
   white-space: wrap;
-  /* overflow: hidden; */
+  background-color: #fff;
 }
 </style>

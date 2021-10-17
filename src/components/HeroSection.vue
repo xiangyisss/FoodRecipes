@@ -1,12 +1,13 @@
 <template>
   <div class="quote_container">
-    <div class="hero_image"></div>
-    <div class="quotecard">
-      <p class="quote">
-        The only time to eat diet food is while you're waiting for the steak to
-        cook
-      </p>
-      <h3 class="authour">- Julia Child</h3>
+    <div class="hero_image">
+      <div class="quotecard">
+        <p class="quote">
+          The only time to eat diet food is while you're waiting for the steak
+          to cook
+        </p>
+        <h3 class="authour">- Julia Child</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +23,7 @@ export default {
   width: 100%;
   min-height: 600px;
   position: relative;
+  /* position: static; */
 }
 .hero_image {
   width: 100%;

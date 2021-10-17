@@ -123,10 +123,6 @@ export default {
 .searchSection {
   width: 90%;
   margin: 0 auto;
-  /* margin-top: 20vh; */
-  /* margin: 0 auto; */
-  /* display: flex;
-  place-items: center; */
   padding: 2rem 1rem 0 1rem;
 }
 .search_bar {
@@ -148,7 +144,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto 3rem auto;
-  /* margin-bottom: 3rem; */
 }
 .search_by_type > * {
   display: flex;
