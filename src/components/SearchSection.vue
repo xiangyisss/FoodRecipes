@@ -13,7 +13,7 @@
     <div class="search_by_type">
       <div class="mealtype_section">
         <label for="mealtype">MealType</label>
-        <select class="select" v-model="mealtype" name="mealtype">
+        <select class="select" v-model="mealtype" name="mealtype" id="testing">
           <option value="null">--------</option>
           <option value="dessert">Dessert</option>
           <option value="breakfast">Breakfast</option>
@@ -178,6 +178,8 @@ select option {
   font-size: 1rem;
   background-color: #fff;
   height: 5rem;
+  border-radius: 16px;
+  padding-bottom: 0.5rem;
 }
 select:hover {
   border-radius: 1rem;

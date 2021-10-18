@@ -1,10 +1,19 @@
 <template>
   <div class="ingredients_steps">
-    <h3>Ingredients</h3>
+    <div class="title">
+      <h3>Ingredients</h3>
+      <small>Tick it</small>
+    </div>
     <ul>
-      <li v-for="item in ingredients" :key="item.index">
-        {{ item.name }}: {{ item.amount.metric.value }}
-        {{ item.amount.metric.unit }}
+      <li v-for="item in ingredients" :key="item.index" id="ingredientslist">
+        <div
+          class="itemlist"
+          style="display: inline"
+          @click.prevent="doneTick(item, $event.target)"
+        >
+          {{ item.name }}: {{ item.amount.metric.value }}
+          {{ item.amount.metric.unit }}
+        </div>
       </li>
     </ul>
   </div>
@@ -15,13 +24,19 @@ import { mapState } from "vuex";
 export default {
   name: "IngredientAndStep",
   props: ["id"],
-  data() {
-    return {
-      check: false,
-      activeColor: "grey",
-    };
-  },
   computed: mapState(["ingredients"]),
+  methods: {
+    doneTick(item, target) {
+      let list = target.classList;
+      if (list.contains("isActive")) {
+        list.remove("isActive");
+        list.add("notActive");
+      } else {
+        list.remove("notActive");
+        list.add("isActive");
+      }
+    },
+  },
   created() {
     this.$store.dispatch("getIngredients", this.id);
   },
@@ -29,23 +44,54 @@ export default {
 </script>
 
 <style scoped>
+small {
+  position: relative;
+}
+small::before {
+  content: " ";
+  background-image: url("../assets/check.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  left: -1.25rem;
+}
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 ul {
   list-style: none;
   padding-top: 0.5rem;
 }
 ul li::before {
-  content: "\2022";
-  color: rgb(255, 174, 0);
+  content: "\204E";
+  color: rgb(120, 120, 197);
   font-weight: bold;
   display: inline-block;
   width: 1rem;
 }
 ul li {
   margin-bottom: 0.75rem;
-  line-height: 1.5rem;
-  cursor: pointer;
+  line-height: 1.25rem;
+  cursor: url("../assets/done-tick.png"), auto;
+}
+.itemlist:hover {
+  color: rgba(120, 120, 197, 0.527);
 }
 .activeClass {
   color: grey;
+}
+.isActive {
+  color: rgb(184, 184, 184);
+  text-decoration: line-through;
+}
+.notActive {
+  color: rgb(24, 23, 23);
+  text-decoration: none;
 }
 </style>

@@ -21,7 +21,8 @@ export default {
   margin: 0;
   padding: 0;
   font-family: "Comic Neue", cursive;
-  color: rgb(28, 31, 25);
+  /* color: rgb(28, 31, 25); */
+  /* color: rgb(19, 20, 18); */
 }
 
 a {

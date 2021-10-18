@@ -43,6 +43,9 @@ export default {
   created() {
     this.$store.dispatch("getRecipeDetails", this.id);
   },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 <style scoped>
@@ -107,7 +110,7 @@ export default {
 }
 summary {
   padding-top: 0.5rem;
-  line-height: 1.5rem;
+  line-height: 1.8rem;
 }
 strong {
   color: rgb(28, 31, 25);
