@@ -2,12 +2,7 @@
   <div class="ingredients_steps">
     <h3>Ingredients</h3>
     <ul>
-      <li
-        v-for="item in ingredients"
-        :key="item.index"
-        :class="this.check ? 'activeClass' : ''"
-        @click="checkIngredients"
-      >
+      <li v-for="item in ingredients" :key="item.index">
         {{ item.name }}: {{ item.amount.metric.value }}
         {{ item.amount.metric.unit }}
       </li>
@@ -25,11 +20,6 @@ export default {
       check: false,
       activeColor: "grey",
     };
-  },
-  methods: {
-    checkIngredients() {
-      this.check = !this.check;
-    },
   },
   computed: mapState(["ingredients"]),
   created() {

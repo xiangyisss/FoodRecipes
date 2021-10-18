@@ -164,6 +164,11 @@ select {
   border-radius: 4px;
   cursor: pointer;
   background-color: #6a926b5d;
+  -webkit-appearance: button;
+  appearance: button;
+  /* background-image: url("../assets/triangle.png");
+  background-size: contain;
+  background-position: center; */
 }
 .search_bar input:focus {
   border-radius: 1.5rem;

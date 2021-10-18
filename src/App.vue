@@ -1,6 +1,7 @@
 <template>
   <div class="nav">
     <router-link :to="{ name: 'Home' }"><top-logo /></router-link>
+    <scroll-to-top />
     <!-- <plants-deco /> -->
   </div>
   <router-view />
@@ -9,8 +10,9 @@
 <script>
 // import PlantsDeco from "./components/PlantsDeco.vue";
 import TopLogo from "./components/TopLogo.vue";
+import ScrollToTop from "./components/ScrollToTop.vue";
 export default {
-  components: { TopLogo },
+  components: { TopLogo, ScrollToTop },
 };
 </script>
 
