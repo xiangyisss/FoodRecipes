@@ -47,7 +47,7 @@ export default {
   transform: translate(-4px, -4px);
 }
 .recipeImage {
-  max-width: 23rem;
+  max-width: 350px;
 }
 .recipeName {
   max-width: 280px;

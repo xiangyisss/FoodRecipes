@@ -1,10 +1,8 @@
 <template>
   <plants-deco />
   <div class="recipe_details">
-    <div class="recipename_box">
-      <p class="recipename">{{ recipedetails.title }}</p>
-    </div>
-    <div class="iconAndServing_container">
+    <p class="recipename">{{ recipedetails.title }}</p>
+    <!-- <div class="iconAndServing_container">
       <div class="icon_box box_1">
         <img src="../assets/timer.png" alt="" />
         <p><strong>Cook</strong> : {{ recipedetails.readyInMinutes }} mins</p>
@@ -13,9 +11,26 @@
         <img src="../assets/serve.png" alt="" />
         <p><strong>Servings</strong> : {{ recipedetails.servings }}</p>
       </div>
-    </div>
-    <div class="recipe_image">
-      <img :src="recipedetails.image" alt="" />
+    </div> -->
+    <div class="image_and_info_container">
+      <div class="recipe_image">
+        <img :src="recipedetails.image" alt="" />
+      </div>
+      <div class="recipe_basic_info">
+        <img src="../assets/timer.png" alt="" />
+        <p>
+          <strong>Prep :</strong>
+          {{ recipedetails.preparationMinutes }} minutes
+        </p>
+        <p><strong>Cook :</strong> {{ recipedetails.readyInMinutes }} mins</p>
+        <p><strong>Servings :</strong> {{ recipedetails.servings }}</p>
+        <div class="freefromtype">
+          <strong>Free from :</strong>
+          <p v-for="diet in recipedetails.diets" :key="diet.index">
+            {{ diet }}
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="step_and_summary">
@@ -29,6 +44,7 @@
       </div>
       <!-- <summary v-html="$store.state.recipedetails.summary"></summary> -->
     </div>
+    <!-- <review-form /> -->
   </div>
 </template>
 
@@ -36,6 +52,7 @@
 import { mapState } from "vuex";
 import IngredientAndStep from "@/components/IngredientAndStep.vue";
 import PlantsDeco from "../components/PlantsDeco.vue";
+// import ReviewForm from "../components/ReviewForm.vue";
 
 export default {
   props: ["id"],
@@ -58,18 +75,46 @@ export default {
 .recipe_details {
   margin: 15vh auto 0 auto;
   width: 90%;
+  max-width: 1400px;
   display: grid;
   place-items: center;
-}
-.recipename_box {
-  width: 100%;
 }
 .recipename {
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
-  margin: 1rem;
+  margin: 1rem 0 1.5rem 0;
   color: rgb(97, 116, 82);
+}
+.image_and_info_container {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.recipe_basic_info {
+  width: 12rem;
+  height: auto;
+  padding: 0.5rem;
+  border: 2px solid rgba(128, 128, 128, 0.397);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+.recipe_basic_info > * {
+  margin-bottom: 1rem;
+}
+.recipe_basic_info img {
+  display: block;
+  position: absolute;
+  top: -7%;
+  right: -4%;
+  background-color: #fff;
+}
+.freefromtype p {
+  padding-left: 5rem;
 }
 .recipe_image img {
   margin-bottom: 2rem;
@@ -121,6 +166,22 @@ summary {
 strong {
   color: rgb(28, 31, 25);
 }
+@media screen and (max-width: 1200px) {
+  .image_and_info_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .recipe_basic_info {
+    width: 55%;
+    margin-bottom: 1.5rem;
+  }
+  .recipe_basic_info img {
+    position: absolute;
+    top: -7%;
+    right: -2%;
+  }
+}
 @media screen and (max-width: 850px) {
   .step_and_summary {
     flex-wrap: wrap;
@@ -129,6 +190,9 @@ strong {
   .instructions_box {
     margin-top: 1rem;
     width: 100%;
+  }
+  .recipe_basic_info {
+    width: 80%;
   }
 }
 @media screen and (max-width: 600px) {

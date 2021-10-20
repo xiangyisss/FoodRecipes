@@ -30,5 +30,6 @@ a {
 }
 .nav {
   width: 100%;
+  overflow-x: hidden;
 }
 </style>

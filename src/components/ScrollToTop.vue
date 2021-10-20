@@ -62,7 +62,7 @@ export default {
   #button {
     position: fixed;
     bottom: 5%;
-    left: 85%;
+    left: 83%;
   }
 }
 </style>

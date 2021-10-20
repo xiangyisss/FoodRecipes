@@ -163,7 +163,7 @@ select {
   outline: none;
   border-radius: 4px;
   cursor: pointer;
-  background-color: #6a926b5d;
+  background-color: #6a926b2d;
   -webkit-appearance: button;
   appearance: button;
 }
@@ -210,13 +210,19 @@ select:hover {
   .searchAndSetBtn {
     width: 25%;
   }
+  .search_by_type > * {
+    width: 20%;
+    margin: 0 auto 0.5rem auto;
+  }
+}
+
+@media screen and (max-width: 1050px) {
   .search_by_type {
     display: flex;
     flex-wrap: wrap;
   }
   .search_by_type > * {
-    width: 80%;
-    margin: 0 auto;
+    width: 40%;
   }
 }
 @media screen and (max-width: 600px) {
@@ -228,7 +234,7 @@ select:hover {
   }
   .search_by_type label {
     font-size: 1rem;
-    margin: 0 0 0.25rem 0;
+    margin: 0 0 0.75rem 0;
   }
   .searchAndSetBtn {
     width: 40%;
