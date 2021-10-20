@@ -1,5 +1,5 @@
 <template>
-  <div id="button" v-show="scrollY" @click="scrollToTop">Top</div>
+  <div id="button" v-show="scrollY" @click="scrollToTop"></div>
 </template>
 
 <script>
@@ -37,7 +37,10 @@ export default {
 #button {
   width: 2.5rem;
   height: 2.5rem;
-  background-color: rgb(120, 120, 197);
+  background-color: rgb(56, 138, 170);
+  background-image: url("../assets/upward-arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 50%;
   color: white;
   font-size: 1rem;
@@ -46,9 +49,14 @@ export default {
   bottom: 10%;
   left: 90%;
   z-index: 1;
-  text-align: center;
+  /* text-align: center;
   display: grid;
-  align-items: center;
+  align-items: center; */
+}
+#button:hover {
+  /* background-color: rgba(120, 120, 197, 0.685); */
+  background-color: rgb(101, 177, 207);
+  transition: all 0.3s;
 }
 @media screen and (max-width: 600px) {
   #button {

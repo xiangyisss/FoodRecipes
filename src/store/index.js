@@ -6,6 +6,7 @@ export default createStore({
     recipes: {},
     recipedetails: {},
     ingredients: {},
+    totalRecipes: 0,
   },
   mutations: {
     GET_RECIPES(state, recipes) {
@@ -58,8 +59,7 @@ export default createStore({
     defaultRecipes({ commit }) {
       axios
         .get(
-          // "https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=3f55c48fbbf3473ab1725e8054a55b71&number=30"
-          "https://api.spoonacular.com/recipes/complexSearch?sort=healthiness&apiKey=376a071d9e3f4a76a57cb68329ff1cff&number=30"
+          "https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=376a071d9e3f4a76a57cb68329ff1cff&number=30"
         )
         .then((res) => commit("DEFAULT_RECIPES", res.data.results))
         .catch((err) => console.log(err));

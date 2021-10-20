@@ -5,11 +5,11 @@
       <p class="recipename">{{ recipedetails.title }}</p>
     </div>
     <div class="iconAndServing_container">
-      <div class="icon_box">
+      <div class="icon_box box_1">
         <img src="../assets/timer.png" alt="" />
         <p><strong>Cook</strong> : {{ recipedetails.readyInMinutes }} mins</p>
       </div>
-      <div class="icon_box">
+      <div class="icon_box box_2">
         <img src="../assets/serve.png" alt="" />
         <p><strong>Servings</strong> : {{ recipedetails.servings }}</p>
       </div>
@@ -36,9 +36,15 @@
 import { mapState } from "vuex";
 import IngredientAndStep from "@/components/IngredientAndStep.vue";
 import PlantsDeco from "../components/PlantsDeco.vue";
+
 export default {
   props: ["id"],
   components: { IngredientAndStep, PlantsDeco },
+  data() {
+    return {
+      page: 1,
+    };
+  },
   computed: mapState(["recipedetails"]),
   created() {
     this.$store.dispatch("getRecipeDetails", this.id);
@@ -69,24 +75,24 @@ export default {
   margin-bottom: 2rem;
   background-color: #fff;
   width: 580px;
-  max-width: 580px;
+  max-width: 540px;
 }
 .iconAndServing_container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
 }
 .icon_box {
   width: auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   border: 1px solid green;
   border-radius: 2rem;
   padding: 0.25rem 0.75rem 0.25rem 0.75rem;
-  margin-right: 1rem;
+  margin: 0 1rem 1rem 0;
 }
 .icon_box img {
   margin-right: 0.5rem;
@@ -109,7 +115,7 @@ export default {
   width: 50%;
 }
 summary {
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   line-height: 1.8rem;
 }
 strong {
@@ -128,26 +134,25 @@ strong {
 @media screen and (max-width: 600px) {
   .recipe_details {
     margin: 10vh auto 0 auto;
-    width: 90%;
+    width: 100%;
     display: grid;
     place-items: center;
   }
   .recipe_image img {
-    max-width: 300px;
+    max-width: 360px;
   }
 
   .recipename {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     text-overflow: ellipsis;
     white-space: wrap;
-    line-height: 1.75rem;
+    line-height: 1.5rem;
     text-align: center;
   }
   .iconAndServing_container {
     width: 90%;
     display: flex;
     flex-wrap: wrap;
-    display: flex;
     justify-content: center;
     align-items: center;
   }

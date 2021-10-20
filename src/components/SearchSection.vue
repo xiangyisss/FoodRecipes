@@ -139,7 +139,7 @@ export default {
   border-radius: 4px;
 }
 .search_by_type {
-  width: 70%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -153,7 +153,7 @@ export default {
 .search_by_type label {
   text-align: center;
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #274228;
   margin: 0.75rem;
 }
@@ -166,9 +166,6 @@ select {
   background-color: #6a926b5d;
   -webkit-appearance: button;
   appearance: button;
-  /* background-image: url("../assets/triangle.png");
-  background-size: contain;
-  background-position: center; */
 }
 .search_bar input:focus {
   border-radius: 1.5rem;
@@ -209,19 +206,32 @@ select:hover {
   color: white;
 }
 
+@media screen and (max-width: 1050px) {
+  .searchAndSetBtn {
+    width: 25%;
+  }
+  .search_by_type {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .search_by_type > * {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 @media screen and (max-width: 600px) {
   .search_bar input {
     width: 90%;
   }
-  .search_by_type {
-    width: 90%;
+  .search_by_type > * {
+    width: 100%;
   }
   .search_by_type label {
     font-size: 1rem;
     margin: 0 0 0.25rem 0;
   }
   .searchAndSetBtn {
-    width: 35%;
+    width: 40%;
   }
 }
 </style>

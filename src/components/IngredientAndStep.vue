@@ -44,6 +44,11 @@ export default {
 </script>
 
 <style scoped>
+.ingredients_steps {
+  width: 40%;
+  /* background-color: rgba(211, 255, 188, 0.445); */
+  padding: 0.5rem;
+}
 small {
   position: relative;
 }
@@ -66,7 +71,7 @@ small::before {
 }
 ul {
   list-style: none;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 }
 ul li::before {
   content: "\204E";
@@ -77,7 +82,8 @@ ul li::before {
 }
 ul li {
   margin-bottom: 0.75rem;
-  line-height: 1.25rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
   cursor: url("../assets/done-tick.png"), auto;
 }
 .itemlist:hover {
@@ -93,5 +99,10 @@ ul li {
 .notActive {
   color: rgb(24, 23, 23);
   text-decoration: none;
+}
+@media screen and (max-width: 850px) {
+  .ingredients_steps {
+    width: 100%;
+  }
 }
 </style>

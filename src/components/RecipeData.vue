@@ -15,9 +15,13 @@
 
 <script>
 import { mapState } from "vuex";
+// import VPagination from "@hennge/vue3-pagination";
+// import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 export default {
   name: "RecipeData",
+  // components: { VPagination },
   computed: mapState(["recipes"]),
+  methods: {},
 };
 </script>
 
@@ -46,13 +50,18 @@ export default {
   max-width: 23rem;
 }
 .recipeName {
-  max-width: 312px;
-  min-height: 80px;
+  max-width: 280px;
+  min-height: 40px;
   font-weight: 700;
   font-size: 1.25rem;
-  color: rgb(43, 41, 41);
+  color: rgb(20, 37, 3);
   text-overflow: ellipsis;
-  white-space: wrap;
+  white-space: nowrap;
+  overflow: hidden;
   background-color: #fff;
+  padding-top: 1rem;
+}
+img {
+  display: block;
 }
 </style>
