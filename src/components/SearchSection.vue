@@ -83,19 +83,19 @@
 
 <script>
 export default {
-  name: "SearchSection",
+  name: 'SearchSection',
   data() {
     return {
-      query: "",
-      mealtype: "null",
-      cuisine: "null",
-      diettype: "null",
-      allergie: "null",
+      query: '',
+      mealtype: 'null',
+      cuisine: 'null',
+      diettype: 'null',
+      allergie: 'null',
     };
   },
   methods: {
     submit() {
-      this.$store.dispatch("getData", {
+      this.$store.dispatch('getData', {
         query: this.query,
         mealtype: this.mealtype,
         cuisine: this.cuisine,
@@ -104,7 +104,7 @@ export default {
       });
     },
     button() {
-      this.$store.dispatch("getData", {
+      this.$store.dispatch('getData', {
         query: this.query,
         mealtype: this.mealtype,
         cuisine: this.cuisine,
@@ -202,7 +202,8 @@ select:hover {
   background-color: transparent;
 }
 .resetBtn {
-  background-color: rgb(56, 138, 170);
+  /* background-color: rgb(56, 138, 170); */
+  background-color: rgba(138, 138, 211, 0.733);
   color: white;
 }
 

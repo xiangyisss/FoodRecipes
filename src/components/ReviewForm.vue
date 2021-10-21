@@ -11,7 +11,7 @@
 <script>
 // import StarRating from "vue-star-rating";
 export default {
-  name: "ReviewForm",
+  name: 'ReviewForm',
   data() {
     return {
       review: [],

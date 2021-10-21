@@ -49,22 +49,22 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import IngredientAndStep from "@/components/IngredientAndStep.vue";
-import PlantsDeco from "../components/PlantsDeco.vue";
+import { mapState } from 'vuex';
+import IngredientAndStep from '@/components/IngredientAndStep.vue';
+import PlantsDeco from '../components/PlantsDeco.vue';
 // import ReviewForm from "../components/ReviewForm.vue";
 
 export default {
-  props: ["id"],
+  props: ['id'],
   components: { IngredientAndStep, PlantsDeco },
   data() {
     return {
       page: 1,
     };
   },
-  computed: mapState(["recipedetails"]),
+  computed: mapState(['recipedetails']),
   created() {
-    this.$store.dispatch("getRecipeDetails", this.id);
+    this.$store.dispatch('getRecipeDetails', this.id);
   },
   mounted() {
     window.scrollTo(0, 0);

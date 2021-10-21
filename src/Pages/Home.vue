@@ -7,21 +7,21 @@
 </template>
 
 <script>
-import SearchSection from "../components/SearchSection.vue";
-import RecipeData from "../components/RecipeData.vue";
-import HeroSection from "../components/HeroSection.vue";
+import SearchSection from '../components/SearchSection.vue';
+import RecipeData from '../components/RecipeData.vue';
+import HeroSection from '../components/HeroSection.vue';
 
 export default {
   components: { SearchSection, RecipeData, HeroSection },
-  name: "Home",
+  name: 'Home',
   data() {
     return {
-      query: "",
-      popular: "",
+      query: '',
+      popular: '',
     };
   },
   mounted() {
-    this.$store.dispatch("defaultRecipes");
+    this.$store.dispatch('defaultRecipes');
   },
 };
 </script>

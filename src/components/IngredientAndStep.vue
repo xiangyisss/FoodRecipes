@@ -20,25 +20,25 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 export default {
-  name: "IngredientAndStep",
-  props: ["id"],
-  computed: mapState(["ingredients"]),
+  name: 'IngredientAndStep',
+  props: ['id'],
+  computed: mapState(['ingredients']),
   methods: {
     doneTick(item, target) {
       let list = target.classList;
-      if (list.contains("isActive")) {
-        list.remove("isActive");
-        list.add("notActive");
+      if (list.contains('isActive')) {
+        list.remove('isActive');
+        list.add('notActive');
       } else {
-        list.remove("notActive");
-        list.add("isActive");
+        list.remove('notActive');
+        list.add('isActive');
       }
     },
   },
   created() {
-    this.$store.dispatch("getIngredients", this.id);
+    this.$store.dispatch('getIngredients', this.id);
   },
 };
 </script>

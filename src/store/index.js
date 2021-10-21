@@ -1,5 +1,5 @@
-import { createStore } from "vuex";
-import axios from "axios";
+import { createStore } from 'vuex';
+import axios from 'axios';
 
 export default createStore({
   state: {
@@ -26,13 +26,13 @@ export default createStore({
     getData({ commit }, { query, mealtype, cuisine, diettype, allergie }) {
       axios
         .get(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=67c89ec4981743d5a2fee1c103ed3960&type=${mealtype ?? ""
-          }&cuisine=${cuisine ?? ""}&diet=${diettype ?? ""}&intolerances=${allergie ?? ""
+          `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=67c89ec4981743d5a2fee1c103ed3960&type=${mealtype ?? ''
+          }&cuisine=${cuisine ?? ''}&diet=${diettype ?? ''}&intolerances=${allergie ?? ''
           }&number=30`
         )
 
         .then((res) => {
-          commit("GET_RECIPES", res.data.results);
+          commit('GET_RECIPES', res.data.results);
         })
         .catch((err) => console.log(err));
     },
@@ -42,7 +42,7 @@ export default createStore({
           ` https://api.spoonacular.com/recipes/${id}/information?apiKey=67c89ec4981743d5a2fee1c103ed3960&includeNutrition=false`
         )
         .then((res) => {
-          commit("GET_RECIPE_DETAILS", res.data);
+          commit('GET_RECIPE_DETAILS', res.data);
           console.log(res.data);
           return res.data;
         });
@@ -53,16 +53,16 @@ export default createStore({
           `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=67c89ec4981743d5a2fee1c103ed3960&includeNutrition=false`
         )
         .then((res) => {
-          commit("GET_INGREDIENTS", res.data.ingredients);
+          commit('GET_INGREDIENTS', res.data.ingredients);
         })
         .catch((err) => console.log(err));
     },
     defaultRecipes({ commit }) {
       axios
         .get(
-          "https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=67c89ec4981743d5a2fee1c103ed3960&number=30"
+          'https://api.spoonacular.com/recipes/complexSearch?sort=popularity&apiKey=67c89ec4981743d5a2fee1c103ed3960&number=30'
         )
-        .then((res) => commit("DEFAULT_RECIPES", res.data.results))
+        .then((res) => commit('DEFAULT_RECIPES', res.data.results))
         .catch((err) => console.log(err));
     },
   },
