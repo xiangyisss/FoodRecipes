@@ -202,7 +202,6 @@ select:hover {
   background-color: transparent;
 }
 .resetBtn {
-  /* background-color: rgb(56, 138, 170); */
   background-color: rgba(138, 138, 211, 0.733);
   color: white;
 }

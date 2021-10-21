@@ -23,12 +23,11 @@ export default {
   width: 100%;
   min-height: 600px;
   position: relative;
-  /* position: static; */
 }
 .hero_image {
   width: 100%;
   min-height: 600px;
-  background-image: url("../assets/food-1.jpg");
+  background-image: url("../../../assets/food-1.jpg");
   background-color: #fff;
   background-repeat: no-repeat;
   background-size: cover;

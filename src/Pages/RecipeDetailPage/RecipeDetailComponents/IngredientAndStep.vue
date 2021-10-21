@@ -54,7 +54,7 @@ small {
 }
 small::before {
   content: " ";
-  background-image: url("../assets/check.png");
+  background-image: url("../../../assets/check.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 1rem;
@@ -84,7 +84,7 @@ ul li {
   margin-bottom: 0.75rem;
   line-height: 1rem;
   letter-spacing: 0.5px;
-  cursor: url("../assets/done-tick.png"), auto;
+  cursor: url("../../../assets/done-tick.png"), auto;
 }
 .itemlist:hover {
   color: rgba(120, 120, 197, 0.527);

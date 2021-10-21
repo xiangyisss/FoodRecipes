@@ -2,22 +2,12 @@
   <plants-deco />
   <div class="recipe_details">
     <p class="recipename">{{ recipedetails.title }}</p>
-    <!-- <div class="iconAndServing_container">
-      <div class="icon_box box_1">
-        <img src="../assets/timer.png" alt="" />
-        <p><strong>Cook</strong> : {{ recipedetails.readyInMinutes }} mins</p>
-      </div>
-      <div class="icon_box box_2">
-        <img src="../assets/serve.png" alt="" />
-        <p><strong>Servings</strong> : {{ recipedetails.servings }}</p>
-      </div>
-    </div> -->
     <div class="image_and_info_container">
       <div class="recipe_image">
         <img :src="recipedetails.image" alt="" />
       </div>
       <div class="recipe_basic_info">
-        <img src="../assets/timer.png" alt="" />
+        <img src="../../assets/timer.png" alt="" />
         <p>
           <strong>Prep :</strong>
           {{ recipedetails.preparationMinutes }} minutes
@@ -42,19 +32,17 @@
           v-html="$store.state.recipedetails.instructions"
         ></summary>
       </div>
-      <!-- <summary v-html="$store.state.recipedetails.summary"></summary> -->
     </div>
-    <!-- <review-form /> -->
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import IngredientAndStep from '@/components/IngredientAndStep.vue';
-import PlantsDeco from '../components/PlantsDeco.vue';
-// import ReviewForm from "../components/ReviewForm.vue";
+import IngredientAndStep from '../RecipeDetailPage/RecipeDetailComponents/IngredientAndStep.vue';
+import PlantsDeco from '../RecipeDetailPage/RecipeDetailComponents/PlantsDeco.vue';
 
 export default {
+  name:'RecipeDetailPage',
   props: ['id'],
   components: { IngredientAndStep, PlantsDeco },
   data() {

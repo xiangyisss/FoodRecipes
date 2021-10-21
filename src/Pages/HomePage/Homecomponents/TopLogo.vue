@@ -1,13 +1,13 @@
 <template>
   <div class="navbar">
-    <img src="../assets/salad.png" alt="" />
+    <img src="@/assets/salad.png" alt="" />
     <p>Recipes for Today</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TopLogo",
+  name: 'TopLogo',
 };
 </script>
 
@@ -26,10 +26,6 @@ export default {
   left: 0;
   z-index: 1;
 }
-/* img {
-  width: 1.5rem;
-  height: 1.5rem;
-} */
 p {
   margin-left: 1rem;
   cursor: pointer;

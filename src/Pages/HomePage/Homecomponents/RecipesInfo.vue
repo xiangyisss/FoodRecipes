@@ -1,7 +1,7 @@
 <template>
   <div class="recipeResult">
     <div class="recipeContainer" v-for="recipe in recipes" :key="recipe.index">
-      <router-link :to="{ name: 'recipedetails', params: { id: recipe.id } }">
+      <router-link :to="{ name: 'RecipeDetailPage', params: { id: recipe.id } }">
         <img
           class="recipeImage"
           :src="recipe.image"
@@ -15,11 +15,8 @@
 
 <script>
 import { mapState } from 'vuex';
-// import VPagination from "@hennge/vue3-pagination";
-// import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 export default {
-  name: 'RecipeData',
-  // components: { VPagination },
+  name: 'RecipesInfo',
   computed: mapState(['recipes']),
   methods: {},
 };
@@ -44,17 +41,6 @@ export default {
   background-color: rgba(37, 37, 36, 0.493);
   position: relative;
 }
-/* .recipeContainer::after {
-  content: "";
-  width: 314px;
-  height: 288px;
-  background-color: rgb(255, 255, 7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-} */
-
 .recipeContainer:hover {
   transform: translate(-4px, -4px);
   border-right: 2px solid #53855483;

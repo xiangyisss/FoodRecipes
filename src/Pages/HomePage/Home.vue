@@ -2,17 +2,17 @@
   <div class="home">
     <hero-section />
     <search-section />
-    <recipe-data />
+    <recipes-info />
   </div>
 </template>
 
 <script>
-import SearchSection from '../components/SearchSection.vue';
-import RecipeData from '../components/RecipeData.vue';
-import HeroSection from '../components/HeroSection.vue';
+import SearchSection from './Homecomponents/SearchSection.vue';
+import RecipesInfo from './Homecomponents/RecipesInfo.vue';
+import HeroSection from './Homecomponents/HeroSection.vue';
 
 export default {
-  components: { SearchSection, RecipeData, HeroSection },
+  components: { SearchSection, RecipesInfo, HeroSection },
   name: 'Home',
   data() {
     return {

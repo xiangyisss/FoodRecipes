@@ -1,7 +1,7 @@
 <template>
   <div class="plant_deco">
-    <img class="plant_left" src="../assets/leafbg.png" alt="" />
-    <img class="plant_right" src="../assets/leafbg.png" alt="" />
+    <img class="plant_left" src="../../../assets/leafbg.png" alt="" />
+    <img class="plant_right" src="../../../assets/leafbg.png" alt="" />
   </div>
 </template>
 

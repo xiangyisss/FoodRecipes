@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import TopLogo from './components/TopLogo.vue';
-import ScrollToTop from './components/ScrollToTop.vue';
+import TopLogo from '@/Pages/HomePage/Homecomponents/TopLogo.vue';
+import ScrollToTop from '@/Pages/HomePage/Homecomponents/ScrollToTop.vue';
 export default {
   components: { TopLogo, ScrollToTop },
 };
@@ -18,7 +18,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: "Comic Neue", cursive;
+  font-family: 'Comic Neue', cursive;
 }
 
 a {

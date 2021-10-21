@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../Pages/Home.vue';
-import RecipeDetail from '@/Pages/RecipeDetail.vue';
-
+import Home from '@/Pages/HomePage/Home.vue';
+import RecipeDetailPage from '@/Pages/RecipeDetailPage/RecipeDetailPage.vue';
 import NotFound from '@/Pages/NotFound.vue';
 import NetworkIssue from '@/Pages/NetworkIssue.vue';
 import store from '@/store/index.js';
@@ -14,8 +13,8 @@ const routes = [
   },
   {
     path: '/recipe/details/:id',
-    name: 'recipedetails',
-    component: RecipeDetail,
+    name: 'RecipeDetailPage',
+    component: RecipeDetailPage,
     props: true,
     beforeEnter(routeTo, routeFrom, next) {
       store
@@ -37,11 +36,6 @@ const routes = [
         });
     },
   },
-  // {
-  //   path: '/cousine-list/',
-  //   name: 'cousinelist',
-  //   component: CousineList,
-  // },
   {
     path: '/404',
     name: '404',
