@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import TopLogo from '@/Pages/HomePage/Homecomponents/TopLogo.vue';
-import ScrollToTop from '@/Pages/HomePage/Homecomponents/ScrollToTop.vue';
+import TopLogo from '@/Components/LogoComponents/TopLogo.vue';
+import ScrollToTop from '@/Components/ScrollToTopComponents/ScrollToTop.vue';
 export default {
   components: { TopLogo, ScrollToTop },
 };

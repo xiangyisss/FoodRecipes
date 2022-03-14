@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import SearchSection from './Homecomponents/SearchSection.vue';
-import RecipesInfo from './Homecomponents/RecipesInfo.vue';
-import HeroSection from './Homecomponents/HeroSection.vue';
+import SearchSection from './Components/SearchSection.vue';
+import RecipesInfo from './Components/RecipesInfo.vue';
+import HeroSection from './Components/HeroSection.vue';
 
 export default {
   components: { SearchSection, RecipesInfo, HeroSection },

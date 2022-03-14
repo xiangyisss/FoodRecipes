@@ -46,7 +46,6 @@ export default {
 <style scoped>
 .ingredients_steps {
   width: 40%;
-  /* background-color: rgba(211, 255, 188, 0.445); */
   padding: 0.5rem;
 }
 small {

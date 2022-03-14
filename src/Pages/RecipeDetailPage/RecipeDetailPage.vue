@@ -38,8 +38,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import IngredientAndStep from '../RecipeDetailPage/RecipeDetailComponents/IngredientAndStep.vue';
-import PlantsDeco from '../RecipeDetailPage/RecipeDetailComponents/PlantsDeco.vue';
+import IngredientAndStep from '../RecipeDetailPage/Components/IngredientAndStep.vue';
+import PlantsDeco from '../RecipeDetailPage/Components/PlantsDeco.vue';
 
 export default {
   name:'RecipeDetailPage',

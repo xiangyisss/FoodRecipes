@@ -38,9 +38,6 @@ export default {
   width: 2.5rem;
   height: 2.5rem;
   background-color: rgb(138, 138, 211);
-  /*background-image: url("../assets/upward-arrow.png");
-  background-repeat: no-repeat;
-  background-position: center; */
   border-radius: 50%;
   color: white;
   font-size: 1rem;
@@ -54,7 +51,6 @@ export default {
   align-items: center;
 }
 #button:hover {
-  /* background-color: rgba(120, 120, 197, 0.685); */
   border: 2px solid rgb(120, 120, 197);
   background-color: transparent;
   color: rgb(20, 37, 3);
